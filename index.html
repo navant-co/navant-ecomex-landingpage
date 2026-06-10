@@ -1,765 +1,678 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Navant Ecomex — Drawback IA · Sourcing Global · Capital Cross-Border</title>
-  <meta name="description" content="Recupere milhões em impostos com IA. Plataforma B2B para exportadoras brasileiras: Drawback automatizado, Sourcing com compliance OFAC e tesouraria cross-border." />
-  <meta property="og:title" content="Navant Ecomex — O Ecossistema Definitivo para o Comércio Exterior" />
-  <meta property="og:description" content="Sourcing Global, Inteligência Tributária (Drawback) e Capital em uma única plataforma." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ecomex.navant.co" />
-  <link rel="canonical" href="https://ecomex.navant.co" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
-          colors: {
-            brand: { 900: '#0a0a14', 800: '#0f0f1e' },
-            primary: { 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8' },
-            accent:  { 400: '#a78bfa', 500: '#8b5cf6', 600: '#7c3aed' },
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    body { background-color: #0a0a14; font-family: 'Inter', sans-serif; }
-
-    /* glassmorphism */
-    .glass { background: rgba(255,255,255,0.04); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
-    .glass-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 1.5rem; }
-
-    /* gradient text */
-    .text-gradient { background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .bg-gradient-primary { background: linear-gradient(135deg, #2563eb, #7c3aed); }
-
-    /* grid bg */
-    .bg-grid { background-image: linear-gradient(rgba(148,163,184,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,0.04) 1px,transparent 1px); background-size: 48px 48px; }
-
-    /* nav scroll effect */
-    .nav-scrolled { background: rgba(10,10,20,0.85) !important; backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); }
-
-    /* animations */
-    @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
-    @keyframes spin { to { transform:rotate(360deg); } }
-    .fade-up { animation: fadeUp 0.6s ease both; }
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
-    .animate-spin { animation: spin 1s linear infinite; }
-
-    /* scrollbar */
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-
-    /* input focus */
-    input:focus, select:focus { outline: none; box-shadow: 0 0 0 2px rgba(59,130,246,0.35); }
-    input[type=number]::-webkit-outer-spin-button,
-    input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navant Ecomex — Drawback IA · Sourcing Global · Capital Cross-Border</title>
+    <meta name="description"
+        content="Recupere milhões em impostos com Inteligência Artificial. Plataforma B2B para exportadoras brasileiras: Drawback automatizado, Sourcing com compliance OFAC e tesouraria cross-border.">
+    <meta property="og:title" content="Navant Ecomex — O Ecossistema Definitivo para o Comércio Exterior">
+    <meta property="og:description" content="Sourcing Global, Inteligência Tributária (Drawback) e Capital em uma única plataforma.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ecomex.navant.co">
+    <link rel="canonical" href="https://ecomex.navant.co">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="text-slate-50 overflow-x-hidden selection:bg-primary-500/30">
 
-<!-- ═══════════════════════════════════════════════
-     NAVBAR
-═══════════════════════════════════════════════ -->
-<nav id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 py-5">
-  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-    <a href="#" class="flex items-center gap-2.5">
-      <div class="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-lg shadow-primary-500/30">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/><path d="M12 10v4"/><path d="M12 2v3"/></svg>
-      </div>
-      <span class="text-xl font-bold tracking-tight text-white">Navant</span>
-    </a>
+<body>
 
-    <div class="hidden md:flex items-center gap-8">
-      <div class="relative group">
-        <button class="flex items-center gap-1 text-sm font-medium text-slate-300 hover:text-white transition-colors py-2">
-          A Plataforma
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
-        </button>
-        <div class="absolute top-full left-0 w-64 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-          <div class="bg-slate-900 border border-white/10 rounded-xl shadow-2xl p-2">
-            <a href="#sourcing" class="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors">
-              <div class="bg-purple-500/10 text-purple-400 p-2 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg></div>
-              <div><div class="text-white text-sm font-bold">Navant Sourcing</div><div class="text-slate-400 text-xs">Fornecedores & Compliance</div></div>
-            </a>
-            <a href="#export" class="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors mt-1">
-              <div class="bg-primary-500/10 text-primary-400 p-2 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
-              <div><div class="text-white text-sm font-bold">Navant Export</div><div class="text-slate-400 text-xs">Operações & Drawback IA</div></div>
-            </a>
-            <a href="#capital" class="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors mt-1">
-              <div class="bg-accent-500/10 text-accent-400 p-2 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
-              <div><div class="text-white text-sm font-bold">Navant Capital</div><div class="text-slate-400 text-xs">Câmbio & Financiamento</div></div>
-            </a>
-          </div>
-        </div>
-      </div>
-      <a href="#drawback" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Drawback IA</a>
-      <a href="#pricing" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Planos</a>
-    </div>
+    <!-- Background -->
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="grid-overlay"></div>
 
-    <div class="hidden md:flex items-center gap-4">
-      <a href="#contato" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Entrar</a>
-      <a href="#drawback" class="text-sm font-semibold bg-white text-brand-900 px-5 py-2.5 rounded-lg hover:bg-slate-100 transition-colors shadow-lg">
-        Simular Economia
-      </a>
-    </div>
-
-    <button id="mobileBtn" class="md:hidden text-slate-300 hover:text-white">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-    </button>
-  </div>
-
-  <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-b border-white/10 px-6 py-5 space-y-4">
-    <a href="#sourcing" class="block text-slate-300 hover:text-white font-medium py-1" onclick="closeMobile()">Sourcing (Compliance)</a>
-    <a href="#export"   class="block text-slate-300 hover:text-white font-medium py-1" onclick="closeMobile()">Export (Drawback IA)</a>
-    <a href="#capital"  class="block text-slate-300 hover:text-white font-medium py-1" onclick="closeMobile()">Capital (Finanças)</a>
-    <hr class="border-white/10" />
-    <a href="#drawback" class="block text-slate-300 hover:text-white font-medium py-1" onclick="closeMobile()">Drawback IA</a>
-    <a href="#pricing"  class="block text-slate-300 hover:text-white font-medium py-1" onclick="closeMobile()">Planos</a>
-    <a href="#contato"  class="block text-center font-semibold bg-white text-brand-900 px-5 py-3 rounded-lg mt-2" onclick="closeMobile()">Simular Economia</a>
-  </div>
-</nav>
-
-<!-- ═══════════════════════════════════════════════
-     HERO
-═══════════════════════════════════════════════ -->
-<section class="relative pt-36 pb-28 md:pt-52 md:pb-40 overflow-hidden bg-grid">
-  <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary-500/15 rounded-full blur-[120px] pointer-events-none"></div>
-  <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none"></div>
-
-  <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
-    <div class="fade-up inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary-500/30 text-primary-400 text-sm font-medium mb-8">
-      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
-      <span class="text-slate-300">Global Trade Operating System</span>
-    </div>
-
-    <h1 class="fade-up delay-1 text-5xl sm:text-6xl md:text-8xl font-black tracking-tight mb-8 leading-[1.05] text-white">
-      O Ecossistema Definitivo<br class="hidden md:block" />
-      para o <span class="text-gradient">Comércio Exterior.</span>
-    </h1>
-
-    <p class="fade-up delay-2 text-lg md:text-xl text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed">
-      Sourcing Global, Inteligência Tributária (Drawback) e Infraestrutura de Capital Financeiro em uma única plataforma unificada. Domine a sua cadeia de suprimentos de ponta-a-ponta.
-    </p>
-
-    <div class="fade-up delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="#drawback" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-primary text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-primary-500/25 hover:brightness-110 transition-all group">
-        Simular Economia com Drawback
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      </a>
-      <a href="#contato" class="w-full sm:w-auto flex items-center justify-center gap-2 glass border border-white/10 hover:border-white/25 text-slate-300 hover:text-white font-medium px-8 py-4 rounded-xl transition-all">
-        Falar com Especialista
-      </a>
-    </div>
-
-    <div class="fade-up delay-4 mt-16 pt-8 border-t border-white/5 flex flex-wrap justify-center items-center gap-x-12 gap-y-5">
-      <div class="flex items-center gap-2 text-slate-300 font-semibold text-base hover:text-purple-400 transition-colors">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
-        Navant Sourcing
-      </div>
-      <div class="flex items-center gap-2 text-slate-300 font-semibold text-base hover:text-primary-400 transition-colors">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-        Navant Export
-      </div>
-      <div class="flex items-center gap-2 text-slate-300 font-semibold text-base hover:text-accent-400 transition-colors">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-        Navant Capital
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     STATS BAR
-═══════════════════════════════════════════════ -->
-<div class="border-y border-white/5 bg-slate-900/40 py-10">
-  <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-    <div><div class="text-3xl font-black text-white">R$ 120M+</div><div class="text-slate-400 text-sm mt-1">em impostos recuperados</div></div>
-    <div><div class="text-3xl font-black text-white">340+</div><div class="text-slate-400 text-sm mt-1">exportadoras clientes</div></div>
-    <div><div class="text-3xl font-black text-white">98.5%</div><div class="text-slate-400 text-sm mt-1">precisão do Tax Engine</div></div>
-    <div><div class="text-3xl font-black text-white">D+0</div><div class="text-slate-400 text-sm mt-1">liquidação de câmbio</div></div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════
-     PRODUTOS — EXPORT
-═══════════════════════════════════════════════ -->
-<section id="export" class="py-28">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid md:grid-cols-2 gap-16 items-center">
-      <div>
-        <div class="inline-flex items-center gap-2 text-primary-400 bg-primary-500/10 px-3 py-1 rounded-full font-bold tracking-wider uppercase text-sm mb-5">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-          Navant Export
-        </div>
-        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">Gestão Operacional e Automação Fiscal</h2>
-        <p class="text-slate-400 text-lg mb-8 leading-relaxed">
-          Substitua dezenas de planilhas. Audita seu histórico, conecta-se ao Siscomex e automatiza a geração de documentos logísticos e a abertura de Atos Concessórios de Drawback sem intervenção humana.
-        </p>
-        <ul class="space-y-4 mb-8">
-          <li class="flex items-start gap-3 text-slate-300"><svg class="text-primary-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Abertura automatizada de Atos Concessórios Integrados (ACI)</li>
-          <li class="flex items-start gap-3 text-slate-300"><svg class="text-primary-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Baixa automática de DIs e DU-Es com cruzamento da Receita Federal</li>
-          <li class="flex items-start gap-3 text-slate-300"><svg class="text-primary-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>NCM Copilot — IA que sugere classificação fiscal correta</li>
-          <li class="flex items-start gap-3 text-slate-300"><svg class="text-primary-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Dashboard gerencial de saldo e economia tributária gerada</li>
-        </ul>
-        <a href="#drawback" class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white font-bold px-6 py-3 rounded-xl transition-all shadow-lg shadow-primary-500/20">
-          Simular Drawback
-        </a>
-      </div>
-
-      <!-- UI mock card -->
-      <div class="glass border border-white/8 rounded-3xl p-8 shadow-2xl">
-        <div class="flex justify-between items-center mb-6 pb-4 border-b border-white/8">
-          <span class="text-white font-bold">Ato Concessório 2026/01</span>
-          <span class="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-xs font-bold">Válido</span>
-        </div>
-        <div class="space-y-5">
-          <div>
-            <div class="flex justify-between text-sm mb-2"><span class="text-slate-400">Mercadorias Importadas</span><span class="text-white font-mono font-bold">U$ 1,2M / U$ 2,0M</span></div>
-            <div class="h-2 bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-primary-500 rounded-full" style="width:60%"></div></div>
-          </div>
-          <div>
-            <div class="flex justify-between text-sm mb-2"><span class="text-slate-400">Compromisso de Exportação</span><span class="text-white font-mono font-bold">U$ 3,5M / U$ 5,0M</span></div>
-            <div class="h-2 bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent-500 rounded-full" style="width:70%"></div></div>
-          </div>
-          <div class="pt-4 border-t border-white/5">
-            <div class="text-slate-500 text-xs mb-1">Economia Tributária Estimada</div>
-            <div class="text-3xl font-black text-gradient">R$ 2,4M</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     PRODUTOS — SOURCING
-═══════════════════════════════════════════════ -->
-<section id="sourcing" class="py-28 bg-slate-900/30">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid md:grid-cols-2 gap-16 items-center">
-      <!-- UI mock -->
-      <div class="glass border border-white/8 rounded-3xl p-8 shadow-2xl">
-        <div class="flex items-center gap-4 mb-6">
-          <div class="w-12 h-12 rounded-full bg-slate-800 border border-white/10 flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
-          </div>
-          <div><div class="text-white font-extrabold">Shenzhen Electronics Co.</div><div class="text-slate-500 text-xs">Fornecedor Nível A · China</div></div>
-        </div>
-        <div class="grid grid-cols-2 gap-4 mb-6">
-          <div class="bg-slate-900/60 p-4 rounded-xl border border-white/5">
-            <div class="text-slate-500 text-xs mb-1 font-bold">Compliance OFAC</div>
-            <div class="text-emerald-400 font-extrabold text-sm flex items-center gap-1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              Limpo
-            </div>
-          </div>
-          <div class="bg-slate-900/60 p-4 rounded-xl border border-white/5">
-            <div class="text-slate-500 text-xs mb-1 font-bold">Histórico BR</div>
-            <div class="text-white font-extrabold text-sm">145 Importações</div>
-          </div>
-        </div>
-        <div class="p-3 rounded-lg border border-emerald-500/30 bg-emerald-500/5 flex items-center gap-2 text-emerald-400 text-sm font-semibold">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-          Fornecedor Homologado — Score 94/100
-        </div>
-      </div>
-
-      <div>
-        <div class="inline-flex items-center gap-2 text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full font-bold tracking-wider uppercase text-sm mb-5">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
-          Navant Sourcing
-        </div>
-        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">Fornecedores Globais Homologados</h2>
-        <p class="text-slate-400 text-lg mb-8 leading-relaxed">
-          Cruzamento em tempo real com OFAC, Interpol e 200+ bancos de dados globais. Garanta que sua operação trabalhe apenas com fabricantes homologados — antes de fechar qualquer pedido.
-        </p>
-        <ul class="space-y-4 mb-8">
-          <li class="flex items-start gap-3 text-slate-300"><svg class="text-purple-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Dossiê KYB com carimbo de tempo para auditorias da Receita</li>
-          <li class="flex items-start gap-3 text-slate-300"><svg class="text-purple-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>RFQs em lote com comparação automática de preços e Incoterms</li>
-          <li class="flex items-start gap-3 text-slate-300"><svg class="text-purple-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Monitoramento contínuo — alertas quando fornecedor entra em lista restritiva</li>
-        </ul>
-        <a href="#contato" class="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-500 text-white font-bold px-6 py-3 rounded-xl transition-all">
-          Solicitar Demo
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     PRODUTOS — CAPITAL
-═══════════════════════════════════════════════ -->
-<section id="capital" class="py-28">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid md:grid-cols-2 gap-16 items-center">
-      <div>
-        <div class="inline-flex items-center gap-2 text-accent-400 bg-accent-500/10 px-3 py-1 rounded-full font-bold tracking-wider uppercase text-sm mb-5">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-          Navant Capital
-        </div>
-        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">Câmbio & Financiamento Integrados</h2>
-        <p class="text-slate-400 text-lg mb-8 leading-relaxed">
-          Sua tesouraria global. Liquide faturas de fornecedores asiáticos, receba de clientes europeus, trave taxas de câmbio e antecipe recebíveis — no mesmo painel.
-        </p>
-        <ul class="space-y-4 mb-8">
-          <li class="flex items-start gap-3 text-slate-300"><svg class="text-accent-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Hedge Cambial — trave taxas FX para contratos futuros</li>
-          <li class="flex items-start gap-3 text-slate-300"><svg class="text-accent-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>ACC/ACE — antecipação de recebíveis com taxa competitiva</li>
-          <li class="flex items-start gap-3 text-slate-300"><svg class="text-accent-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Multi-currency wallet — spread a partir de 0,5%</li>
-        </ul>
-        <a href="#contato" class="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-600 text-white font-bold px-6 py-3 rounded-xl transition-all">
-          Falar com Mesa de Operações
-        </a>
-      </div>
-
-      <!-- FX mock card -->
-      <div class="glass border border-white/8 rounded-3xl p-8 shadow-2xl">
-        <div class="text-center mb-8 bg-slate-900/60 p-6 rounded-2xl border border-white/5">
-          <div class="text-slate-400 text-xs mb-2 font-bold uppercase tracking-wider">Taxa de Câmbio (USD/BRL)</div>
-          <div class="text-5xl font-black text-white">5.14<span class="text-2xl text-slate-500 font-normal">20</span></div>
-          <div class="inline-flex items-center gap-1 text-accent-400 text-sm font-bold mt-3 bg-accent-500/10 px-3 py-1 rounded-full">
-            ↗ Spot Favorável
-          </div>
-        </div>
-        <div class="bg-slate-900/60 rounded-xl p-5 border border-white/5">
-          <div class="flex justify-between items-center mb-4">
-            <span class="text-slate-400 font-bold text-sm">Invoice INV-2026/89</span>
-            <span class="text-white font-mono font-bold">U$ 150.000</span>
-          </div>
-          <button class="w-full bg-gradient-primary text-white font-bold py-3 rounded-lg text-sm shadow-md">
-            Liquidar Operação
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     DRAWBACK SIMULATOR
-═══════════════════════════════════════════════ -->
-<section id="drawback" class="py-28 bg-slate-900/40">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="glass-card p-8 md:p-14 relative overflow-hidden">
-      <div class="absolute -top-32 -right-32 w-64 h-64 bg-primary-500/15 blur-[80px] rounded-full pointer-events-none"></div>
-
-      <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
-        <div>
-          <div class="w-12 h-12 rounded-xl bg-primary-500/20 text-primary-400 flex items-center justify-center mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="12" y1="14" y2="14"/><path d="m16 20-2-2 2-2"/></svg>
-          </div>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Simulador de Inteligência Tributária</h2>
-          <p class="text-slate-400 mb-8 text-lg">
-            Descubra instantaneamente quanto você pode suspender em impostos (II, IPI, PIS/COFINS e ICMS) utilizando o regime de Drawback.
-          </p>
-
-          <form id="drawbackForm" class="space-y-4" onsubmit="runSimulator(event)">
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Código NCM da Mercadoria</label>
-              <div class="relative">
-                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <!-- ─── NAVBAR ──────────────────────────────────────────── -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <div class="logo-mark">
+                    <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
+                        <rect width="36" height="36" rx="10" fill="url(#lg1)" />
+                        <path d="M10 24 L18 10 L26 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+                        <path d="M13 20 L23 20" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                        <defs>
+                            <linearGradient id="lg1" x1="0" y1="0" x2="36" y2="36">
+                                <stop stop-color="#3b82f6" />
+                                <stop offset="1" stop-color="#8b5cf6" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
                 </div>
-                <input id="ncmInput" type="text" placeholder="Ex: 8542.31.90" required
-                  class="w-full bg-slate-900/60 border border-white/10 rounded-lg py-3 pl-10 pr-4 text-white text-sm focus:ring-2 focus:ring-primary-500/40" />
-              </div>
+                <span class="nav-brand">Navant <strong>Ecomex</strong></span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#desafios">Desafios</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#comparativo">Por que Navant?</a></li>
+                <li><a href="#simulador">Drawback IA</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="#cta" class="btn-ghost nav-cta-ghost">Falar com consultor</a>
+                <a href="#simulador" class="btn-primary">Simular economia</a>
             </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Valor Anual de Importação (R$)</label>
-              <input id="amountInput" type="number" placeholder="Ex: 5000000" required
-                class="w-full bg-slate-900/60 border border-white/10 rounded-lg py-3 px-4 text-white text-sm focus:ring-2 focus:ring-primary-500/40" />
+        </div>
+    </nav>
+
+    <!-- ─── HERO ─────────────────────────────────────────────── -->
+    <section class="hero" id="hero">
+        <div class="container hero-grid">
+            <div class="hero-content" data-reveal>
+
+                <div class="hero-pill">
+                    <span class="pill-dot"></span>
+                    Global Trade Operating System
+                </div>
+
+                <h1 class="hero-title">
+                    O ecossistema definitivo<br>
+                    para o<br>
+                    <span class="gradient-text">Comércio Exterior.</span>
+                </h1>
+
+                <p class="hero-sub">
+                    Drawback automatizado por IA, Sourcing global com compliance OFAC e
+                    tesouraria cross-border — tudo conectado em uma única plataforma.
+                    Você foca em exportar. A Navant cuida do resto.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#simulador" class="btn-primary btn-large">
+                        Simular meu Drawback
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                            <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <a href="#produtos" class="btn-ghost btn-large">
+                        Ver a plataforma
+                    </a>
+                </div>
+
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <span class="trust-icon">✓</span>
+                        Siscomex nativo
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">✓</span>
+                        OFAC em tempo real
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">✓</span>
+                        Câmbio D+0
+                    </div>
+                </div>
             </div>
-            <button type="submit" id="simBtn" class="w-full bg-gradient-primary hover:brightness-110 text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-all">
-              <span id="simBtnText">Auditar NCM com Inteligência Artificial</span>
-            </button>
-          </form>
+
+            <!-- Dashboard Mockup -->
+            <div class="hero-visual" data-reveal data-delay="1">
+                <div class="dashboard">
+                    <div class="dash-titlebar">
+                        <div class="titlebar-dots">
+                            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+                        </div>
+                        <span class="titlebar-label">Painel Operacional — Comex</span>
+                    </div>
+
+                    <div class="dash-kpis">
+                        <div class="kpi kpi-a">
+                            <span class="kpi-label">Impostos suspensos</span>
+                            <span class="kpi-value" data-count="4200000" data-format="currency">R$ 4,2M</span>
+                            <span class="kpi-delta positive">↑ 18% vs ano passado</span>
+                        </div>
+                        <div class="kpi kpi-b">
+                            <span class="kpi-label">Volume FX</span>
+                            <span class="kpi-value" data-count="50000000" data-format="usd">U$ 50M+</span>
+                            <span class="kpi-delta positive">Spread médio 0,5%</span>
+                        </div>
+                        <div class="kpi kpi-c">
+                            <span class="kpi-label">Fornecedores OK</span>
+                            <span class="kpi-value" data-count="340" data-format="int">340</span>
+                            <span class="kpi-delta positive">Zero embargos</span>
+                        </div>
+                    </div>
+
+                    <div class="dash-divider"></div>
+
+                    <div class="dash-feed">
+                        <p class="feed-title">Atividade em tempo real</p>
+                        <div class="feed-item" id="fi-1">
+                            <span class="feed-dot green"></span>
+                            <div>
+                                <span class="feed-name">Drawback aprovado automaticamente</span>
+                                <span class="feed-sub">ACI 2026/038 · NCM 8542.31 · Suspensão R$ 280k</span>
+                            </div>
+                            <span class="feed-time">agora</span>
+                        </div>
+                        <div class="feed-item" id="fi-2">
+                            <span class="feed-dot blue"></span>
+                            <div>
+                                <span class="feed-name">DU-E baixada automaticamente</span>
+                                <span class="feed-sub">Shipment #892 · U$ 1,2M · Hamburgo</span>
+                            </div>
+                            <span class="feed-time">2 min</span>
+                        </div>
+                        <div class="feed-item" id="fi-3">
+                            <span class="feed-dot green"></span>
+                            <div>
+                                <span class="feed-name">OFAC check concluído</span>
+                                <span class="feed-sub">Shenzhen Elec Co. · Score 97/100 · Aprovado</span>
+                            </div>
+                            <span class="feed-time">4 min</span>
+                        </div>
+                        <div class="feed-item" id="fi-4">
+                            <span class="feed-dot amber"></span>
+                            <div>
+                                <span class="feed-name">Hedge cambial travado</span>
+                                <span class="feed-sub">USD/BRL 5.1420 · U$ 200k · NDF 90 dias</span>
+                            </div>
+                            <span class="feed-time">7 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visual-float-card">
+                    <span class="float-icon">🛡</span>
+                    <div>
+                        <strong>Compliance verificado automaticamente</strong>
+                        <span>OFAC · Interpol · SEFAZ · Receita Federal</span>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Result panel -->
-        <div id="simResult" class="min-h-[280px] border border-dashed border-white/10 rounded-xl flex items-center justify-center text-slate-500 text-sm text-center px-6">
-          Preencha os dados ao lado para a Navant calcular sua suspensão de impostos via Drawback.
+    <!-- ─── DESAFIOS ──────────────────────────────────────────── -->
+    <section class="section" id="desafios">
+        <div class="container">
+            <div class="section-tag">O dia a dia das exportadoras</div>
+            <h2 class="section-title">Você já passou por alguma dessas situações?</h2>
+            <p class="section-sub">Esses são desafios reais enfrentados por exportadoras brasileiras toda semana — e que
+                não precisam mais custar dinheiro, tempo ou processos manuais.</p>
+
+            <div class="challenges-grid">
+                <div class="challenge-card" data-reveal>
+                    <div class="ch-emoji">📋</div>
+                    <h3>"Temos Atos Concessórios de Drawback vencidos sem ter aproveitado"</h3>
+                    <p>O prazo expirou sem baixa completa. A equipe tributária não conseguiu acompanhar todos os itens.
+                        Com a Navant, o sistema cruza DIs e DU-Es automaticamente e alerta antes do vencimento.</p>
+                </div>
+                <div class="challenge-card challenge-highlight" data-reveal data-delay="1">
+                    <div class="ch-emoji">💸</div>
+                    <h3>"Pagamos II e IPI em importações que se qualificam para suspensão"</h3>
+                    <p>Isso acontece quando o NCM não está otimizado ou o regime de Drawback não foi solicitado.
+                        Nosso Tax Engine identifica cada oportunidade perdida nos últimos 5 anos.</p>
+                </div>
+                <div class="challenge-card" data-reveal data-delay="2">
+                    <div class="ch-emoji">🚨</div>
+                    <h3>"Fechamos contrato com um fornecedor em lista restritiva"</h3>
+                    <p>A sanção entrou 48h antes do fechamento. O Background Check manual não detectou. Com a Navant,
+                        o cruzamento com OFAC, Interpol e listas da ONU é feito em segundos — antes de qualquer PO.</p>
+                </div>
+                <div class="challenge-card" data-reveal>
+                    <div class="ch-emoji">📉</div>
+                    <h3>"Perdemos 3% em câmbio operando pelo banco de varejo"</h3>
+                    <p>Spread de 2% a 4% nas operações de câmbio é dinheiro perdido. Para U$ 5M anuais, isso é
+                        R$ 700k que ficam no banco. O Navant Capital opera com spread a partir de 0,5%.</p>
+                </div>
+                <div class="challenge-card" data-reveal data-delay="1">
+                    <div class="ch-emoji">🗂</div>
+                    <h3>"Invoice e Packing List ainda são feitos no Excel"</h3>
+                    <p>Erros de preenchimento geram bloqueios na alfândega, multas da SEFAZ e atrasos no embarque.
+                        Com a Navant, os documentos de exportação são gerados automaticamente a partir do pedido.</p>
+                </div>
+                <div class="challenge-card" data-reveal data-delay="2">
+                    <div class="ch-emoji">🤷</div>
+                    <h3>"Não sei meu saldo real de Drawback sem ligar para o despachante"</h3>
+                    <p>Para montar um relatório gerencial, o time cruza planilhas por horas. Sem saber o saldo atual,
+                        é impossível otimizar novas importações. O painel da Navant atualiza via Siscomex em tempo real.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ═══════════════════════════════════════════════
-     TESTIMONIALS
-═══════════════════════════════════════════════ -->
-<section class="py-28">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="inline-block px-4 py-1.5 rounded-full text-sm font-semibold glass border border-white/10 text-slate-300 mb-4">Resultados Reais</span>
-      <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Indústrias que já <span class="text-gradient">dominam o Comex</span></h2>
-      <p class="text-lg text-slate-400">Da siderurgia ao agronegócio, as maiores exportadoras brasileiras confiam na Navant.</p>
-    </div>
+    <!-- ─── PROPOSTA ───────────────────────────────────────────── -->
+    <section class="section section-dark" id="proposta">
+        <div class="container">
+            <div class="section-tag">Nossa proposta</div>
+            <h2 class="section-title">Uma plataforma que trabalha<br>enquanto você exporta</h2>
+            <p class="section-sub">Construímos a Navant Ecomex depois de analisar cirurgicamente os processos de
+                dezenas de exportadoras brasileiras. O que encontramos: a maioria das perdas tributárias e de compliance
+                vem de tarefas que um sistema deveria fazer automaticamente.</p>
 
-    <div class="grid md:grid-cols-3 gap-6 mb-16">
-      <!-- Card 1 -->
-      <div class="glass border border-white/8 hover:border-primary-500/40 transition-colors p-8 rounded-2xl flex flex-col">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" class="mb-4 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
-        <p class="text-slate-300 text-sm leading-relaxed flex-1 mb-6">"Recuperamos R$ 4,2 milhões em impostos suspensos no primeiro ano. O Simulador de Drawback identificou um Ato Concessório que nossa equipe havia perdido há 3 anos."</p>
-        <span class="inline-block px-3 py-1.5 rounded-full text-sm font-bold bg-primary-500/10 text-primary-400 mb-6 w-fit">R$ 4,2M recuperados</span>
-        <div class="flex gap-1 mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#60a5fa" stroke="#60a5fa" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#60a5fa" stroke="#60a5fa" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#60a5fa" stroke="#60a5fa" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#60a5fa" stroke="#60a5fa" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#60a5fa" stroke="#60a5fa" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <div class="pillars-grid">
+                <div class="pillar" data-reveal>
+                    <div class="pillar-icon" style="--clr: #60a5fa">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="16" height="20" x="4" y="2" rx="2"/>
+                            <line x1="8" x2="16" y1="6" y2="6"/>
+                            <line x1="8" x2="12" y1="14" y2="14"/>
+                            <path d="m16 20-2-2 2-2"/>
+                        </svg>
+                    </div>
+                    <h3>Drawback por IA</h3>
+                    <p>O Tax Engine cruza suas DIs e DU-Es, classifica NCMs, abre Atos Concessórios e faz baixas
+                        automáticas — sem que sua equipe precise lembrar de nada.</p>
+                </div>
+                <div class="pillar" data-reveal data-delay="1">
+                    <div class="pillar-icon" style="--clr: #a78bfa">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <h3>Compliance automático</h3>
+                    <p>Todo fornecedor é verificado contra OFAC, Interpol e mais de 200 bases globais antes de qualquer
+                        pedido de compra. Zero embargos alfandegários para os clientes ativos.</p>
+                </div>
+                <div class="pillar" data-reveal data-delay="2">
+                    <div class="pillar-icon" style="--clr: #34d399">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                            <polyline points="16 7 22 7 22 13"/>
+                        </svg>
+                    </div>
+                    <h3>Capital integrado</h3>
+                    <p>Multi-currency wallet, hedge cambial, ACC/ACE e liquidação D+0 no mesmo painel. Spread a partir
+                        de 0,5% — sem precisar ligar para a mesa do banco.</p>
+                </div>
+                <div class="pillar" data-reveal data-delay="3">
+                    <div class="pillar-icon" style="--clr: #fbbf24">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                    </div>
+                    <h3>Visibilidade total</h3>
+                    <p>Saldo de Drawback, exposição cambial, embarques em andamento e compliance de fornecedores —
+                        em um único painel que atualiza em tempo real via Siscomex.</p>
+                </div>
+            </div>
         </div>
-        <div class="border-t border-white/5 pt-4">
-          <div class="font-semibold text-white text-sm">Ricardo Mendes</div>
-          <div class="text-slate-400 text-xs mt-0.5">Diretor de Operações — Metalúrgica Horizonte S.A.</div>
-          <div class="text-primary-400 text-xs font-medium mt-1">Siderurgia</div>
+    </section>
+
+    <!-- ─── PRODUTOS ─────────────────────────────────────────── -->
+    <section class="section" id="produtos">
+        <div class="container">
+            <div class="section-tag">A plataforma completa</div>
+            <h2 class="section-title">Três produtos,<br>um ecossistema unificado</h2>
+            <p class="section-sub">Chega de um sistema para Siscomex, outro para câmbio, e mais um para sourcing.
+                Na Navant, tudo conversa — e os dados fluem automaticamente entre os módulos.</p>
+
+            <div class="tabs" role="tablist">
+                <button class="tab active" data-tab="export" role="tab">📦 Navant Export</button>
+                <button class="tab" data-tab="sourcing" role="tab">🌐 Navant Sourcing</button>
+                <button class="tab" data-tab="capital" role="tab">💱 Navant Capital</button>
+            </div>
+
+            <!-- EXPORT -->
+            <div class="tab-panel active" id="tab-export">
+                <div class="modules-grid">
+                    <div class="module-card" data-reveal>
+                        <div class="mod-icon" style="--c:#60a5fa">📊</div>
+                        <h4>Drawback IA — Tax Engine</h4>
+                        <p>Auditoria automática do histórico de importações e exportações. O engine classifica NCMs,
+                            identifica oportunidades perdidas e abre Atos Concessórios Integrados sem intervenção humana.</p>
+                    </div>
+                    <div class="module-card" data-reveal data-delay="1">
+                        <div class="mod-icon" style="--c:#34d399">🔗</div>
+                        <h4>Integração Siscomex</h4>
+                        <p>Conexão direta com o Siscomex. Baixa automática de DIs e DU-Es com cruzamento em tempo real
+                            contra o banco de dados da Receita Federal. Saldo sempre atualizado.</p>
+                    </div>
+                    <div class="module-card" data-reveal data-delay="2">
+                        <div class="mod-icon" style="--c:#a78bfa">🤖</div>
+                        <h4>NCM Copilot</h4>
+                        <p>IA que sugere a classificação fiscal correta para cada produto. Reduz autuações por
+                            classificação errada e maximiza os benefícios tributários aplicáveis ao seu portfólio.</p>
+                    </div>
+                    <div class="module-card" data-reveal>
+                        <div class="mod-icon" style="--c:#fbbf24">📄</div>
+                        <h4>Documentos de Exportação</h4>
+                        <p>Invoice, Packing List, Bill of Lading e Certificado de Origem gerados automaticamente a
+                            partir do pedido de venda. Sem planilhas, sem erros de preenchimento.</p>
+                    </div>
+                    <div class="module-card" data-reveal data-delay="1">
+                        <div class="mod-icon" style="--c:#f87171">🚢</div>
+                        <h4>Rastreamento de Embarques</h4>
+                        <p>Tracking em tempo real de contêineres, voos de carga e processos aduaneiros. Integração com
+                            MarineTraffic, Aviationstack e agentes de carga globais.</p>
+                    </div>
+                    <div class="module-card" data-reveal data-delay="2">
+                        <div class="mod-icon" style="--c:#38bdf8">📈</div>
+                        <h4>Dashboard Gerencial</h4>
+                        <p>Saldo de Drawback, impostos suspensos acumulados, DU-Es em aberto e projeção de economia
+                            tributária — exportável para Power BI e Google Data Studio.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOURCING -->
+            <div class="tab-panel" id="tab-sourcing">
+                <div class="modules-grid">
+                    <div class="module-card" data-reveal>
+                        <div class="mod-icon" style="--c:#a78bfa">🛡</div>
+                        <h4>Background Check (KYB)</h4>
+                        <p>Varredura profunda do quadro societário do fornecedor contra OFAC, Interpol, listas da ONU,
+                            UE e histórico de litígios aduaneiros no Brasil. Resultado em menos de 3 segundos.</p>
+                    </div>
+                    <div class="module-card" data-reveal data-delay="1">
+                        <div class="mod-icon" style="--c:#60a5fa">📋</div>
+                        <h4>RFQs em Lote</h4>
+                        <p>Envie Requests for Quotation para múltiplos fornecedores globais diretamente pela plataforma.
+                            Comparação automática de preços, Incoterms e prazo de entrega em um único painel.</p>
+                    </div>
+                    <div class="module-card" data-reveal data-delay="2">
+                        <div class="mod-icon" style="--c:#34d399">📁</div>
+                        <h4>Dossiê de Homologação</h4>
+                        <p>PDFs com carimbo de tempo comprovando due diligence na contratação. Essencial para auditorias
+                            da Receita Federal e cumprimento da legislação antilavagem.</p>
+                    </div>
+                    <div class="module-card" data-reveal>
+                        <div class="mod-icon" style="--c:#fbbf24">🔔</div>
+                        <h4>Monitoramento Contínuo</h4>
+                        <p>Alertas automáticos quando um fornecedor já aprovado entra em lista restritiva. Você é
+                            notificado antes de fechar o próximo pedido — zero risco de embargo retroativo.</p>
+                    </div>
+                    <div class="module-card" data-reveal data-delay="1">
+                        <div class="mod-icon" style="--c:#f87171">🌏</div>
+                        <h4>Banco de Fabricantes</h4>
+                        <p>Acesso a fabricantes homologados nos principais setores exportadores. Encontre substitutos
+                            qualificados em horas em caso de emergência de supply chain.</p>
+                    </div>
+                    <div class="module-card" data-reveal data-delay="2">
+                        <div class="mod-icon" style="--c:#38bdf8">🔌</div>
+                        <h4>API de Integração</h4>
+                        <p>Webhooks em tempo real para integrar o pipeline de sourcing com seu ERP, WMS ou sistema de
+                            compras corporativo. SDK disponível para Go, Node.js e Python.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CAPITAL -->
+            <div class="tab-panel" id="tab-capital">
+                <div class="modules-grid">
+                    <div class="module-card" data-reveal>
+                        <div class="mod-icon" style="--c:#34d399">💰</div>
+                        <h4>Multi-Currency Wallet</h4>
+                        <p>Saldos em USD, EUR, CNY e BRL. Pagamentos T/T diretos para fábricas globais com spreads
+                            institucionais a partir de 0,5% — sem as taxas abusivas dos bancos de varejo.</p>
+                    </div>
+                    <div class="module-card" data-reveal data-delay="1">
+                        <div class="mod-icon" style="--c:#60a5fa">📊</div>
+                        <h4>Hedge Cambial & FX</h4>
+                        <p>Trave taxas de câmbio para contratos futuros. Operações de NDF e opções cambiais integradas
+                            ao painel — sem precisar ligar para a mesa do banco ou abrir conta em corretora.</p>
+                    </div>
+                    <div class="module-card" data-reveal data-delay="2">
+                        <div class="mod-icon" style="--c:#a78bfa">⚡</div>
+                        <h4>Antecipação ACC/ACE</h4>
+                        <p>Vendeu com prazo de 90 dias? A Navant antecipa os recebíveis de exportação com taxa
+                            competitiva e análise de crédito em D+0 — sem burocracia bancária.</p>
+                    </div>
+                    <div class="module-card" data-reveal>
+                        <div class="mod-icon" style="--c:#fbbf24">🔒</div>
+                        <h4>Escrow Lock Contratual</h4>
+                        <p>Fundos liberados ao fornecedor estrangeiro apenas após confirmação do B/L e inspeção SGS.
+                            Seu caixa protegido durante toda a cadeia logística internacional.</p>
+                    </div>
+                    <div class="module-card" data-reveal data-delay="1">
+                        <div class="mod-icon" style="--c:#f87171">📑</div>
+                        <h4>Relatórios BACEN/PTAX</h4>
+                        <p>Declaração de Câmbio (DC) gerada automaticamente para compliance regulatório. Integração
+                            com o SISBACEN para prestação de contas em tempo real.</p>
+                    </div>
+                    <div class="module-card" data-reveal data-delay="2">
+                        <div class="mod-icon" style="--c:#38bdf8">🔗</div>
+                        <h4>ERP & API REST</h4>
+                        <p>Conexão via API com SAP, TOTVS, Oracle e outros ERPs corporativos. Os dados de câmbio e
+                            financeiro alimentam seu sistema de contabilidade automaticamente.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Card 2 -->
-      <div class="glass border border-white/8 hover:border-accent-500/40 transition-colors p-8 rounded-2xl flex flex-col">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" class="mb-4 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
-        <p class="text-slate-300 text-sm leading-relaxed flex-1 mb-6">"O módulo de Capital simplificou completamente nossa operação de câmbio. Fazemos hedge e liquidamos ACC no mesmo dia — antes levava uma semana entre banco e despacho."</p>
-        <span class="inline-block px-3 py-1.5 rounded-full text-sm font-bold bg-accent-500/10 text-accent-400 mb-6 w-fit">7 dias → 1 dia</span>
-        <div class="flex gap-1 mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <!-- ─── COMPARATIVO ─────────────────────────────────────────── -->
+    <section class="section section-dark" id="comparativo">
+        <div class="container">
+            <div class="section-tag">Por que Navant Ecomex?</div>
+            <h2 class="section-title">O que muda na prática</h2>
+            <p class="section-sub">Uma comparação direta com o modo como a maioria das exportadoras brasileiras opera
+                hoje — e como a Navant transforma cada processo.</p>
+
+            <div class="compare-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th class="th-feature">O que sua equipe faz hoje</th>
+                            <th class="th-old">Processos tradicionais</th>
+                            <th class="th-new">Com a Navant Ecomex</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Controlar saldo de Drawback</td>
+                            <td class="bad">Planilha manual, atualizada mensalmente</td>
+                            <td class="good">Painel em tempo real via Siscomex</td>
+                        </tr>
+                        <tr>
+                            <td>Abrir Ato Concessório (ACI)</td>
+                            <td class="bad">1 a 3 semanas com despachante aduaneiro</td>
+                            <td class="good">Automático em minutos pelo Tax Engine</td>
+                        </tr>
+                        <tr>
+                            <td>Verificar fornecedor novo (OFAC)</td>
+                            <td class="bad">E-mail para compliance, até 2 dias</td>
+                            <td class="good">Background check em menos de 3 segundos</td>
+                        </tr>
+                        <tr>
+                            <td>Liquidar câmbio de exportação</td>
+                            <td class="bad">Ligação para banco, D+2, spread 2–4%</td>
+                            <td class="good">D+0, spread a partir de 0,5%, tudo no app</td>
+                        </tr>
+                        <tr>
+                            <td>Gerar Invoice e Packing List</td>
+                            <td class="bad">Excel, erros frequentes, bloqueio aduaneiro</td>
+                            <td class="good">Gerado automaticamente a partir do pedido</td>
+                        </tr>
+                        <tr>
+                            <td>Baixar DI no regime de Drawback</td>
+                            <td class="bad">Processo manual com prazo de 5 dias úteis</td>
+                            <td class="good">Automático, cruzado com a Receita Federal</td>
+                        </tr>
+                        <tr>
+                            <td>Antecipar recebíveis de exportação</td>
+                            <td class="bad">ACC bancário com análise de 7 a 14 dias</td>
+                            <td class="good">Aprovação e crédito em D+0</td>
+                        </tr>
+                        <tr>
+                            <td>Relatório de impostos suspensos</td>
+                            <td class="bad">Cruzamento de planilhas por 2 dias</td>
+                            <td class="good">Dashboard executivo, exportável para BI</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="border-t border-white/5 pt-4">
-          <div class="font-semibold text-white text-sm">Ana Paula Ferreira</div>
-          <div class="text-slate-400 text-xs mt-0.5">CFO — AgriExport Brasil</div>
-          <div class="text-accent-400 text-xs font-medium mt-1">Agronegócio</div>
+    </section>
+
+    <!-- ─── SIMULADOR DRAWBACK ────────────────────────────────── -->
+    <section class="section" id="simulador">
+        <div class="container">
+            <div class="sim-box" data-reveal>
+                <div class="sim-glow"></div>
+                <div class="sim-inner">
+                    <div class="sim-left">
+                        <div class="section-tag">Inteligência tributária</div>
+                        <h2>Descubra quanto você pode recuperar com Drawback</h2>
+                        <p>Informe o NCM e o valor anual importado. Nosso Tax Engine calcula instantaneamente a
+                            suspensão de II, IPI, PIS/COFINS e ICMS — com base na legislação vigente.</p>
+
+                        <form class="sim-form" id="drawback-form">
+                            <div>
+                                <label for="sim-ncm">Código NCM da mercadoria</label>
+                                <input id="sim-ncm" type="text" placeholder="Ex: 8542.31.90 ou apenas 85"
+                                    autocomplete="off" required>
+                            </div>
+                            <div>
+                                <label for="sim-amount">Valor anual importado (R$)</label>
+                                <input id="sim-amount" type="number" placeholder="Ex: 5000000 (R$ 5 milhões)"
+                                    min="1" required>
+                            </div>
+                            <button type="submit" class="btn-primary" id="sim-btn">
+                                Auditar com Inteligência Artificial
+                                <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
+                                    <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="sim-result" id="sim-result">
+                        Preencha o NCM e o valor ao lado para o Tax Engine calcular sua
+                        suspensão de impostos via Drawback.
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Card 3 -->
-      <div class="glass border border-white/8 hover:border-purple-500/40 transition-colors p-8 rounded-2xl flex flex-col">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" class="mb-4 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
-        <p class="text-slate-300 text-sm leading-relaxed flex-1 mb-6">"O compliance OFAC automático nos evitou um bloqueio na alfândega com um fornecedor em lista restritiva. Isso teria custado meses de processo e multas milionárias."</p>
-        <span class="inline-block px-3 py-1.5 rounded-full text-sm font-bold bg-purple-500/10 text-purple-400 mb-6 w-fit">Risco eliminado</span>
-        <div class="flex gap-1 mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <!-- ─── CTA ───────────────────────────────────────────────── -->
+    <section class="section section-dark" id="cta">
+        <div class="container">
+            <div class="cta-box" data-reveal>
+                <div class="cta-glow"></div>
+                <div class="cta-inner">
+                    <div class="cta-text">
+                        <h2>Veja a Navant funcionando<br>com os dados da sua operação</h2>
+                        <p>Em 45 minutos, mostramos como a plataforma resolve os desafios específicos da sua
+                            exportadora. Simulamos o Drawback com seu CNPJ real e fazemos o background check
+                            de um fornecedor seu — na hora.</p>
+                        <ul class="cta-benefits">
+                            <li>✓ Simulação de Drawback com seus NCMs reais</li>
+                            <li>✓ Background check de um fornecedor ao vivo</li>
+                            <li>✓ Proposta comercial personalizada ao final</li>
+                            <li>✓ Consultor especialista em comércio exterior</li>
+                        </ul>
+                    </div>
+
+                    <div id="cta-form-area">
+                        <h3 style="font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:20px;">Agendar demonstração gratuita</h3>
+                        <div class="cta-form">
+                            <input type="text" id="cta-empresa" placeholder="Nome da empresa / Razão Social" autocomplete="organization">
+                            <input type="text" id="cta-nome" placeholder="Seu nome" autocomplete="name">
+                            <input type="email" id="cta-email" placeholder="E-mail corporativo" autocomplete="email">
+                            <input type="tel" id="cta-phone" placeholder="WhatsApp" autocomplete="tel">
+                            <select id="cta-cargo">
+                                <option value="">Seu cargo</option>
+                                <option>Diretor(a) / CEO</option>
+                                <option>Gerente de Comex</option>
+                                <option>CFO / Diretor Financeiro</option>
+                                <option>Head de Compras / Sourcing</option>
+                                <option>Analista de Comércio Exterior</option>
+                                <option>Outro</option>
+                            </select>
+                            <button class="btn-primary btn-full" id="cta-btn" onclick="handleCTA()">
+                                Agendar minha demonstração
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                    <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="form-fine">Ao enviar, você concorda com nossa Política de Privacidade. Sem spam, prometemos.</p>
+                    </div>
+
+                    <div class="form-success" id="cta-success">
+                        <div class="form-success-icon">✓</div>
+                        <h4>Solicitação enviada!</h4>
+                        <p>Nossa equipe entrará em contato em até 4 horas úteis para confirmar o horário e
+                            preparar a simulação com os dados da sua empresa.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="border-t border-white/5 pt-4">
-          <div class="font-semibold text-white text-sm">Carlos Eduardo Lima</div>
-          <div class="text-slate-400 text-xs mt-0.5">Head de Compras — Eletro Tech Indústria</div>
-          <div class="text-purple-400 text-xs font-medium mt-1">Eletrônica</div>
+    </section>
+
+    <!-- ─── FOOTER ────────────────────────────────────────────── -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">
+                        <div class="logo-mark">
+                            <svg width="24" height="24" viewBox="0 0 36 36" fill="none">
+                                <rect width="36" height="36" rx="10" fill="url(#flg1)" />
+                                <path d="M10 24 L18 10 L26 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+                                <path d="M13 20 L23 20" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                                <defs>
+                                    <linearGradient id="flg1" x1="0" y1="0" x2="36" y2="36">
+                                        <stop stop-color="#3b82f6" />
+                                        <stop offset="1" stop-color="#8b5cf6" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <span class="nav-brand">Navant <strong>Ecomex</strong></span>
+                    </a>
+                    <p>Plataforma completa de gestão de comércio exterior para exportadoras brasileiras.
+                        Drawback IA, Sourcing global e Capital cross-border.</p>
+                    <div class="footer-tags">
+                        <span>Drawback IA</span><span>OFAC Check</span>
+                        <span>Câmbio D+0</span><span>Siscomex</span><span>ACC/ACE</span>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Plataforma</h5>
+                    <ul>
+                        <li><a href="#produtos">Navant Export</a></li>
+                        <li><a href="#produtos">Navant Sourcing</a></li>
+                        <li><a href="#produtos">Navant Capital</a></li>
+                        <li><a href="#simulador">Simulador Drawback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Recursos</h5>
+                    <ul>
+                        <li><a href="#">Documentação API</a></li>
+                        <li><a href="#">Cases de Sucesso</a></li>
+                        <li><a href="#">Conformidade LGPD</a></li>
+                        <li><a href="#">Integração Siscomex</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Empresa</h5>
+                    <ul>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#cta">Falar com vendas</a></li>
+                        <li><a href="#">Suporte</a></li>
+                        <li><a href="#">Carreiras</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p id="footer-year"></p>
+                <p>ecomex.navant.co · LGPD compliant</p>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </footer>
 
-<!-- ═══════════════════════════════════════════════
-     PRICING
-═══════════════════════════════════════════════ -->
-<section id="pricing" class="py-28 bg-slate-900/30">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="inline-block px-4 py-1.5 rounded-full text-sm font-semibold glass border border-white/10 text-slate-300 mb-4">Planos e Preços</span>
-      <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Investimento proporcional ao <span class="text-gradient">valor gerado</span></h2>
-      <p class="text-lg text-slate-400">Mensalidade recorrente para o uso da plataforma. Nos módulos de Capital e Drawback, você só paga quando ganha.</p>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6 items-start">
-      <!-- Starter -->
-      <div class="glass border border-white/8 hover:border-blue-500/40 transition-colors p-8 rounded-2xl flex flex-col">
-        <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-1">Starter</h3>
-        <p class="text-slate-400 text-sm mb-6">Para empresas iniciando no comércio exterior.</p>
-        <div class="mb-8"><span class="text-4xl font-extrabold text-blue-400">R$ 2.499</span><span class="text-slate-500">/mês</span></div>
-        <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-300">
-          <li class="flex items-start gap-2"><svg class="text-blue-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Navant Sourcing completo</li>
-          <li class="flex items-start gap-2"><svg class="text-blue-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Gestão documental em nuvem</li>
-          <li class="flex items-start gap-2"><svg class="text-blue-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>10 dossiês de fornecedores/mês</li>
-          <li class="flex items-start gap-2"><svg class="text-blue-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Rastreamento de embarques</li>
-          <li class="flex items-start gap-2"><svg class="text-blue-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Suporte em horário comercial</li>
-        </ul>
-        <div class="text-xs text-slate-500 mb-6 space-y-1">
-          <div class="font-semibold text-slate-400 mb-2">Pay-as-you-go:</div>
-          <div>R$ 1,50/verificação OFAC</div>
-          <div>R$ 5,00/documento OCR</div>
-        </div>
-        <a href="#contato" class="block text-center glass border border-white/15 hover:border-white/30 text-slate-300 hover:text-white font-semibold py-3 rounded-xl transition-all">Começar agora</a>
-      </div>
-
-      <!-- Pro (highlighted) -->
-      <div class="glass border-2 border-primary-500 shadow-2xl shadow-primary-500/10 p-8 rounded-2xl flex flex-col relative md:-translate-y-4">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Mais Popular</div>
-        <div class="w-10 h-10 rounded-xl bg-primary-500/20 flex items-center justify-center mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-1">Pro</h3>
-        <p class="text-slate-400 text-sm mb-6">Para exportadoras em crescimento que precisam de drawback.</p>
-        <div class="mb-8"><span class="text-4xl font-extrabold text-primary-400">R$ 6.499</span><span class="text-slate-500">/mês</span></div>
-        <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-300">
-          <li class="flex items-start gap-2"><svg class="text-primary-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Tudo do Starter, mais:</li>
-          <li class="flex items-start gap-2"><svg class="text-primary-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Navant Export (Drawback IA)</li>
-          <li class="flex items-start gap-2"><svg class="text-primary-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Navant Capital (câmbio + hedge)</li>
-          <li class="flex items-start gap-2"><svg class="text-primary-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>5 DU-Es/mês incluídas</li>
-          <li class="flex items-start gap-2"><svg class="text-primary-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>50 usuários incluídos</li>
-          <li class="flex items-start gap-2"><svg class="text-primary-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Suporte prioritário 24/7</li>
-        </ul>
-        <div class="text-xs text-slate-500 mb-6 space-y-1">
-          <div class="font-semibold text-slate-400 mb-2">Pay-as-you-go:</div>
-          <div>R$ 30,00/DU-E adicional</div>
-          <div>0,5% a 2% sobre volume FX</div>
-        </div>
-        <a href="#contato" class="block text-center bg-gradient-primary text-white font-bold py-3 rounded-xl transition-all hover:brightness-110 shadow-lg shadow-primary-500/20">Falar com consultor</a>
-      </div>
-
-      <!-- Enterprise -->
-      <div class="glass border border-white/8 hover:border-accent-500/40 transition-colors p-8 rounded-2xl flex flex-col">
-        <div class="w-10 h-10 rounded-xl bg-accent-500/10 flex items-center justify-center mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-1">Enterprise</h3>
-        <p class="text-slate-400 text-sm mb-6">Para grandes exportadoras com alto volume de operações.</p>
-        <div class="mb-8"><span class="text-4xl font-extrabold text-accent-400">Sob consulta</span></div>
-        <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-300">
-          <li class="flex items-start gap-2"><svg class="text-accent-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Tudo do Pro, mais:</li>
-          <li class="flex items-start gap-2"><svg class="text-accent-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Usuários ilimitados</li>
-          <li class="flex items-start gap-2"><svg class="text-accent-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>30 DU-Es/mês incluídas</li>
-          <li class="flex items-start gap-2"><svg class="text-accent-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>API Copilot NCM/Incoterm (IA)</li>
-          <li class="flex items-start gap-2"><svg class="text-accent-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Gerente de conta dedicado</li>
-          <li class="flex items-start gap-2"><svg class="text-accent-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>SLA 99,9% com penalidade</li>
-        </ul>
-        <div class="text-xs text-slate-500 mb-6 space-y-1">
-          <div class="font-semibold text-slate-400 mb-2">Pay-as-you-go:</div>
-          <div>R$ 0,05 por R$1k em volume FX</div>
-          <div>Success fee drawback negociado</div>
-        </div>
-        <a href="#contato" class="block text-center glass border border-white/15 hover:border-white/30 text-slate-300 hover:text-white font-semibold py-3 rounded-xl transition-all">Solicitar proposta</a>
-      </div>
-    </div>
-
-    <p class="text-center text-slate-500 text-sm mt-8">
-      Todos os planos incluem API de webhooks, painel de auditoria e conformidade com LGPD.<br />
-      Contrato mínimo de 12 meses para Starter e Pro. Preços em BRL.
-    </p>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     CONTACT / DEMO FORM
-═══════════════════════════════════════════════ -->
-<section id="contato" class="py-28">
-  <div class="max-w-5xl mx-auto px-6">
-    <div class="grid md:grid-cols-2 gap-16 items-start">
-      <div class="pt-4">
-        <span class="inline-block px-3 py-1.5 rounded-full text-sm font-semibold bg-primary-500/10 border border-primary-500/20 text-primary-400 mb-6">Demo gratuita</span>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6">Veja a Navant Ecomex em ação na sua indústria</h2>
-        <p class="text-slate-400 mb-8 leading-relaxed">
-          Demonstração personalizada de 45 minutos com um especialista Navant. Mostraremos exatamente como a plataforma funciona para exportadoras do seu segmento e porte.
-        </p>
-        <ul class="space-y-4">
-          <li class="flex items-center gap-3 text-slate-300 text-sm"><svg class="text-primary-400 shrink-0" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Simulação de Drawback com seu CNPJ real</li>
-          <li class="flex items-center gap-3 text-slate-300 text-sm"><svg class="text-primary-400 shrink-0" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Background check de um fornecedor seu</li>
-          <li class="flex items-center gap-3 text-slate-300 text-sm"><svg class="text-primary-400 shrink-0" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Proposta comercial personalizada</li>
-          <li class="flex items-center gap-3 text-slate-300 text-sm"><svg class="text-primary-400 shrink-0" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Retorno em até 4 horas úteis</li>
-        </ul>
-      </div>
-
-      <div class="glass-card p-8">
-        <div id="formSuccess" class="hidden text-center py-8">
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" class="mx-auto mb-4"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-          <h3 class="text-xl font-bold text-white mb-2">Solicitação enviada!</h3>
-          <p class="text-slate-400">Nossa equipe entrará em contato em até 4 horas úteis para confirmar o horário da sua demo.</p>
-        </div>
-        <form id="contactForm" class="space-y-4" onsubmit="submitForm(event)">
-          <h3 class="text-xl font-bold text-white mb-2">Agendar demonstração</h3>
-          <div>
-            <label class="block text-sm font-medium text-slate-300 mb-1">Nome completo</label>
-            <input type="text" placeholder="Seu nome" required class="w-full bg-slate-900/60 border border-white/10 rounded-lg py-2.5 px-3.5 text-white text-sm" />
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-slate-300 mb-1">E-mail corporativo</label>
-            <input type="email" placeholder="voce@suaempresa.com.br" required class="w-full bg-slate-900/60 border border-white/10 rounded-lg py-2.5 px-3.5 text-white text-sm" />
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-slate-300 mb-1">WhatsApp</label>
-            <input type="tel" placeholder="(11) 99999-0000" required class="w-full bg-slate-900/60 border border-white/10 rounded-lg py-2.5 px-3.5 text-white text-sm" />
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-slate-300 mb-1">Nome da empresa</label>
-            <input type="text" placeholder="Razão Social" required class="w-full bg-slate-900/60 border border-white/10 rounded-lg py-2.5 px-3.5 text-white text-sm" />
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-slate-300 mb-1">Seu cargo</label>
-            <select required class="w-full bg-slate-900/60 border border-white/10 rounded-lg py-2.5 px-3.5 text-slate-300 text-sm">
-              <option value="">Selecione...</option>
-              <option>Diretor(a) / CEO</option>
-              <option>Gerente de Comex</option>
-              <option>CFO / Diretor Financeiro</option>
-              <option>Head de Compras</option>
-              <option>Outro</option>
-            </select>
-          </div>
-          <button type="submit" class="w-full bg-gradient-primary hover:brightness-110 text-white font-bold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary-500/20">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-            Solicitar demonstração
-          </button>
-          <p class="text-xs text-slate-500 text-center">Sem spam. Seus dados são protegidos pela LGPD.</p>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════════════ -->
-<footer class="border-t border-white/5 bg-slate-900/40 pt-16 pb-8">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-      <div>
-        <a href="#" class="flex items-center gap-2 mb-4">
-          <div class="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/><path d="M12 10v4"/><path d="M12 2v3"/></svg></div>
-          <span class="text-lg font-bold text-white">Navant</span>
-        </a>
-        <p class="text-sm text-slate-400 mb-4">Recuperação tributária inteligente e gestão de comércio exterior B2B. Deixe a IA cuidar da burocrança.</p>
-      </div>
-      <div>
-        <h4 class="text-white font-semibold mb-4">Produto</h4>
-        <ul class="space-y-3">
-          <li><a href="#export"   class="text-sm text-slate-400 hover:text-primary-400 transition-colors">Navant Export</a></li>
-          <li><a href="#sourcing" class="text-sm text-slate-400 hover:text-primary-400 transition-colors">Navant Sourcing</a></li>
-          <li><a href="#capital"  class="text-sm text-slate-400 hover:text-primary-400 transition-colors">Navant Capital</a></li>
-          <li><a href="#pricing"  class="text-sm text-slate-400 hover:text-primary-400 transition-colors">Planos</a></li>
-          <li><a href="#drawback" class="text-sm text-slate-400 hover:text-primary-400 transition-colors">Drawback IA</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-white font-semibold mb-4">Empresa</h4>
-        <ul class="space-y-3">
-          <li><a href="#" class="text-sm text-slate-400 hover:text-primary-400 transition-colors">Sobre Nós</a></li>
-          <li><a href="#" class="text-sm text-slate-400 hover:text-primary-400 transition-colors">Carreiras</a></li>
-          <li><a href="#contato" class="text-sm text-slate-400 hover:text-primary-400 transition-colors">Contato</a></li>
-          <li><a href="#" class="text-sm text-slate-400 hover:text-primary-400 transition-colors">Parceiros</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-white font-semibold mb-4">Legal</h4>
-        <ul class="space-y-3">
-          <li><a href="#" class="text-sm text-slate-400 hover:text-primary-400 transition-colors">Termos de Uso</a></li>
-          <li><a href="#" class="text-sm text-slate-400 hover:text-primary-400 transition-colors">Política de Privacidade</a></li>
-          <li><a href="#" class="text-sm text-slate-400 hover:text-primary-400 transition-colors">LGPD — Dados Pessoais</a></li>
-          <li><a href="#" class="text-sm text-slate-400 hover:text-primary-400 transition-colors">Cookies</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="text-sm text-slate-500">© <span id="year"></span> Navant. Todos os direitos reservados.</p>
-      <p class="text-sm text-slate-600">ecomex.navant.co · LGPD compliant</p>
-    </div>
-  </div>
-</footer>
-
-<!-- ═══════════════════════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════════════════════ -->
-<script>
-  // Year
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Navbar scroll effect
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('nav-scrolled', window.scrollY > 20);
-  });
-
-  // Mobile menu
-  const mobileBtn = document.getElementById('mobileBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-  function closeMobile() { mobileMenu.classList.add('hidden'); }
-
-  // Drawback simulator
-  function runSimulator(e) {
-    e.preventDefault();
-    const ncm = document.getElementById('ncmInput').value;
-    const amount = parseFloat(document.getElementById('amountInput').value) || 0;
-    const btn = document.getElementById('simBtn');
-    const result = document.getElementById('simResult');
-
-    if (amount === 0) return;
-
-    btn.disabled = true;
-    btn.innerHTML = '<svg class="animate-spin mr-2" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>Analisando Legislação...';
-
-    result.innerHTML = `
-      <div class="min-h-[280px] border border-white/10 rounded-xl flex flex-col items-center justify-center gap-4 bg-slate-900/30 p-6">
-        <div class="relative w-16 h-16">
-          <div class="absolute inset-0 border-4 border-primary-500/30 rounded-full"></div>
-          <div class="absolute inset-0 border-4 border-primary-500 rounded-full border-t-transparent animate-spin"></div>
-        </div>
-        <p class="text-slate-400 text-sm text-center">Escaneando Base Receita Federal para NCM ${ncm}...</p>
-      </div>`;
-
-    setTimeout(() => {
-      const chapter = ncm.substring(0, 2);
-      const isTech = chapter === '85' || chapter === '84';
-      const isPharma = chapter === '30';
-      const iiPct = isTech ? 0.16 : isPharma ? 0.08 : 0.14;
-      const ipiPct = isTech ? 0.15 : isPharma ? 0.00 : 0.10;
-      const pisCofinsPct = 0.1175;
-      const iiVal = amount * iiPct;
-      const ipiVal = amount * ipiPct;
-      const pisCofinsVal = amount * pisCofinsPct;
-      const icmsVal = (amount + iiVal + ipiVal + pisCofinsVal) * 0.18;
-      const total = iiVal + ipiVal + pisCofinsVal + icmsVal;
-
-      const fmt = n => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(n);
-      const fmtPct = v => (v * 100).toFixed(2).replace('.00','') + '%';
-
-      result.innerHTML = `
-        <div class="border border-accent-500/30 rounded-xl bg-accent-500/5 p-6 w-full">
-          <div class="inline-flex items-center gap-2 bg-accent-500/20 text-accent-400 px-3 py-1 rounded-full text-sm font-bold mb-4">
-            ✓ NCM ${ncm} Elegível
-          </div>
-          <p class="text-slate-400 text-sm mb-1">Custo Tributário Recuperável (1 ano)</p>
-          <h3 class="text-3xl font-black text-gradient mb-6">${fmt(total)}</h3>
-          <div class="space-y-2">
-            <div class="flex justify-between p-3 bg-slate-900/60 rounded-lg border border-white/5"><span class="text-slate-300 text-sm">II (${fmtPct(iiPct)})</span><span class="font-bold text-white">${fmt(iiVal)}</span></div>
-            <div class="flex justify-between p-3 bg-slate-900/60 rounded-lg border border-white/5"><span class="text-slate-300 text-sm">IPI (${fmtPct(ipiPct)})</span><span class="font-bold text-white">${fmt(ipiVal)}</span></div>
-            <div class="flex justify-between p-3 bg-slate-900/60 rounded-lg border border-white/5"><span class="text-slate-300 text-sm">PIS/COFINS (${fmtPct(pisCofinsPct)})</span><span class="font-bold text-white">${fmt(pisCofinsVal)}</span></div>
-            <div class="flex justify-between p-3 bg-slate-900/60 rounded-lg border border-white/5 border-l-4 border-l-purple-500"><span class="text-slate-300 text-sm">ICMS (~18%)</span><span class="font-bold text-purple-400">${fmt(icmsVal)}</span></div>
-          </div>
-          <p class="text-xs text-slate-500 mt-4 text-center">* Confidence Score 98.5% · Base TIPI atualizada</p>
-          <a href="#contato" class="mt-4 block text-center bg-gradient-primary text-white font-bold py-2.5 rounded-lg text-sm hover:brightness-110 transition-all">
-            Implementar de verdade →
-          </a>
-        </div>`;
-
-      btn.disabled = false;
-      btn.innerHTML = '<span id="simBtnText">Auditar Outro NCM</span>';
-    }, 2800);
-  }
-
-  // Contact form
-  function submitForm(e) {
-    e.preventDefault();
-    document.getElementById('contactForm').classList.add('hidden');
-    document.getElementById('formSuccess').classList.remove('hidden');
-  }
-</script>
+    <script src="main.js"></script>
+    <script>
+        document.getElementById('footer-year').textContent =
+            `© ${new Date().getFullYear()} Navant Ecomex. Todos os direitos reservados.`;
+    </script>
 </body>
+
 </html>
