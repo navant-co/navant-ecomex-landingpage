@@ -37,8 +37,8 @@
                             stroke-linecap="round" stroke-linejoin="round" opacity="0.9" fill="none"/>
                         <defs>
                             <linearGradient id="lg1" x1="0" y1="0" x2="36" y2="36">
-                                <stop stop-color="#06B6D4"/>
-                                <stop offset="1" stop-color="#F59E0B"/>
+                                <stop stop-color="#1e40af"/>
+                                <stop offset="1" stop-color="#b45309"/>
                             </linearGradient>
                         </defs>
                     </svg>
@@ -73,15 +73,13 @@
                 <p class="hero-eyebrow">Para CFOs, diretores de comex e CEOs de exportadoras brasileiras</p>
 
                 <h1 class="hero-title">
-                    Seu RADAR tem impostos<br>
-                    a recuperar. A Navant<br>
-                    <span class="gradient-text-gold">encontra em 48 horas.</span>
+                    Do sourcing ao câmbio.<br>
+                    Sua operação de comex<br>
+                    <span class="gradient-text-cyan">unificada em uma plataforma.</span>
                 </h1>
 
                 <p class="hero-sub">
-                    II, IPI, PIS/COFINS e ICMS sobre insumos importados para exportação podem ser suspensos
-                    via Drawback — automaticamente. A maioria das exportadoras deixa entre R$ 500k e R$ 8M
-                    na mesa por ano. Sem perceber.
+                    Homologue fornecedores globais, gerencie logística aduaneira com Drawback automatizado e economize até 80% em spread cambial na mesma plataforma.
                 </p>
 
                 <!-- Mini-simulador inline -->
@@ -92,7 +90,7 @@
                         <input type="number" id="hero-sim-input" placeholder="Volume anual importado" min="1">
                         <button onclick="heroSimRedirect()">Ver economia →</button>
                     </div>
-                    <div class="mini-sim-hint">↳ Ex: importadora com R$ 5M/ano suspende até R$ 1,4M em impostos</div>
+                    <div class="mini-sim-hint">↳ Ex: importadora com R$ 5M/ano economiza até R$ 1,4M em impostos e R$ 100k em câmbio</div>
                 </div>
 
                 <div class="hero-actions">
@@ -217,7 +215,7 @@
             <div class="clients-header">Exportadoras que usam a Navant Ecomex</div>
             <div class="clients-grid">
                 <div class="client-card">
-                    <div class="client-avatar" style="background:rgba(245,158,11,0.12);color:#F59E0B">S</div>
+                    <div class="client-avatar" style="background:rgba(180,83,9,0.08);color:#b45309">S</div>
                     <div class="client-body">
                         <div class="client-name">Siderúrgica Nacional</div>
                         <div class="client-meta">São Paulo, SP · 1.200 funcionários · desde Mar/2023</div>
@@ -226,7 +224,7 @@
                     </div>
                 </div>
                 <div class="client-card">
-                    <div class="client-avatar" style="background:rgba(16,185,129,0.12);color:#10B981">A</div>
+                    <div class="client-avatar" style="background:rgba(4,120,87,0.08);color:#047857">A</div>
                     <div class="client-body">
                         <div class="client-name">AgriGroup Exportações</div>
                         <div class="client-meta">Mato Grosso · U$ 80M export/ano · desde Jan/2024</div>
@@ -235,7 +233,7 @@
                     </div>
                 </div>
                 <div class="client-card">
-                    <div class="client-avatar" style="background:rgba(6,182,212,0.12);color:#06B6D4">E</div>
+                    <div class="client-avatar" style="background:rgba(30,64,175,0.08);color:#1e40af">E</div>
                     <div class="client-body">
                         <div class="client-name">Eletro Tech Componentes</div>
                         <div class="client-meta">Manaus, AM · 12 NCMs elegíveis · desde Ago/2023</div>
@@ -244,7 +242,7 @@
                     </div>
                 </div>
                 <div class="client-card">
-                    <div class="client-avatar" style="background:rgba(139,92,246,0.12);color:#8B5CF6">C</div>
+                    <div class="client-avatar" style="background:rgba(109,40,217,0.08);color:#6d28d9">C</div>
                     <div class="client-body">
                         <div class="client-name">Calce Brasil Exportadora</div>
                         <div class="client-meta">Novo Hamburgo, RS · 40 países · desde Nov/2023</div>
@@ -253,7 +251,7 @@
                     </div>
                 </div>
                 <div class="client-card">
-                    <div class="client-avatar" style="background:rgba(245,158,11,0.12);color:#F59E0B">P</div>
+                    <div class="client-avatar" style="background:rgba(180,83,9,0.08);color:#b45309">P</div>
                     <div class="client-body">
                         <div class="client-name">PapelCel Indústria</div>
                         <div class="client-meta">Pará · 5 unidades · desde Fev/2024</div>
@@ -262,7 +260,7 @@
                     </div>
                 </div>
                 <div class="client-card">
-                    <div class="client-avatar" style="background:rgba(16,185,129,0.12);color:#10B981">F</div>
+                    <div class="client-avatar" style="background:rgba(4,120,87,0.08);color:#047857">F</div>
                     <div class="client-body">
                         <div class="client-name">FarmaBR Internacional</div>
                         <div class="client-meta">Rio de Janeiro · 28 fornecedores internacionais · desde Mai/2024</div>
@@ -340,7 +338,7 @@
 
             <div class="pillars-grid">
                 <div class="pillar" data-reveal>
-                    <div class="pillar-icon" style="--clr: #F59E0B">
+                    <div class="pillar-icon" style="--clr: var(--gold)">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect width="16" height="20" x="4" y="2" rx="2"/>
@@ -354,7 +352,7 @@
                         Confidence Score de 98.5% — sua equipe só valida exceções.</p>
                 </div>
                 <div class="pillar" data-reveal data-delay="1">
-                    <div class="pillar-icon" style="--clr: #10B981">
+                    <div class="pillar-icon" style="--clr: var(--emerald)">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -365,7 +363,7 @@
                         Resultado em menos de 3 segundos. Dossiê KYB com carimbo de tempo.</p>
                 </div>
                 <div class="pillar" data-reveal data-delay="2">
-                    <div class="pillar-icon" style="--clr: #06B6D4">
+                    <div class="pillar-icon" style="--clr: var(--primary-blue)">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
@@ -377,7 +375,7 @@
                         — sem ligar para mesa do banco, sem esperar 2 dias úteis.</p>
                 </div>
                 <div class="pillar" data-reveal data-delay="3">
-                    <div class="pillar-icon" style="--clr: #8B5CF6">
+                    <div class="pillar-icon" style="--clr: var(--violet)">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" />
@@ -409,37 +407,37 @@
             <div class="tab-panel active" id="tab-export">
                 <div class="modules-grid">
                     <div class="module-card" data-reveal>
-                        <div class="mod-icon" style="--c:#F59E0B">🧮</div>
+                        <div class="mod-icon" style="--c:var(--gold)">🧮</div>
                         <h4>Tax Engine — Drawback IA</h4>
                         <p>Auditoria automática do histórico RADAR. Identifica NCMs elegíveis, abre ACIs, cruza DIs
                             e DU-Es com a Receita Federal. Seu time só valida o que o engine marcou como exceção.</p>
                     </div>
                     <div class="module-card" data-reveal data-delay="1">
-                        <div class="mod-icon" style="--c:#06B6D4">🔗</div>
+                        <div class="mod-icon" style="--c:var(--primary-blue)">🔗</div>
                         <h4>Integração Siscomex Nativa</h4>
                         <p>Conexão direta — sem middleware, sem scraping. Baixa automática de DIs e DU-Es com
                             cruzamento em tempo real. Saldo de Drawback atualizado em segundos.</p>
                     </div>
                     <div class="module-card" data-reveal data-delay="2">
-                        <div class="mod-icon" style="--c:#8B5CF6">🤖</div>
+                        <div class="mod-icon" style="--c:var(--violet)">🤖</div>
                         <h4>NCM Copilot</h4>
                         <p>IA que sugere a classificação fiscal correta para cada produto. Reduz autuações da
                             Receita por NCM errado e maximiza os benefícios tributários aplicáveis.</p>
                     </div>
                     <div class="module-card" data-reveal>
-                        <div class="mod-icon" style="--c:#10B981">📄</div>
+                        <div class="mod-icon" style="--c:var(--emerald)">📄</div>
                         <h4>Documentos de Exportação</h4>
                         <p>Invoice, Packing List, Bill of Lading e Certificado de Origem gerados automaticamente
                             a partir do pedido de venda. Sem Excel, sem erros de preenchimento manual.</p>
                     </div>
                     <div class="module-card" data-reveal data-delay="1">
-                        <div class="mod-icon" style="--c:#EF4444">🚢</div>
+                        <div class="mod-icon" style="--c:var(--red)">🚢</div>
                         <h4>Rastreamento em Tempo Real</h4>
                         <p>Tracking de contêineres, voos de carga e processos aduaneiros. Integrado com
                             MarineTraffic, Aviationstack e agentes de carga — um painel, todas as cargas.</p>
                     </div>
                     <div class="module-card" data-reveal data-delay="2">
-                        <div class="mod-icon" style="--c:#F59E0B">📊</div>
+                        <div class="mod-icon" style="--c:var(--gold)">📊</div>
                         <h4>Dashboard Executivo</h4>
                         <p>Saldo de Drawback, impostos suspensos acumulados, DU-Es em aberto e projeção de
                             economia tributária. Exportável para Power BI e Google Data Studio.</p>
@@ -450,37 +448,37 @@
             <div class="tab-panel" id="tab-sourcing">
                 <div class="modules-grid">
                     <div class="module-card" data-reveal>
-                        <div class="mod-icon" style="--c:#10B981">🛡</div>
+                        <div class="mod-icon" style="--c:var(--emerald)">🛡</div>
                         <h4>Background Check KYB em Tempo Real</h4>
                         <p>Varredura contra OFAC SDN, Interpol Red Notices, listas ONU e UE, PEP check e
                             histórico aduaneiro BR. Resultado em menos de 3 segundos. Dossiê com carimbo de tempo.</p>
                     </div>
                     <div class="module-card" data-reveal data-delay="1">
-                        <div class="mod-icon" style="--c:#06B6D4">📋</div>
+                        <div class="mod-icon" style="--c:var(--primary-blue)">📋</div>
                         <h4>RFQs em Lote</h4>
                         <p>Envie Requests for Quotation para múltiplos fornecedores globais pela plataforma.
                             Comparação automática de preços, Incoterms e prazo em painel unificado.</p>
                     </div>
                     <div class="module-card" data-reveal data-delay="2">
-                        <div class="mod-icon" style="--c:#8B5CF6">📁</div>
+                        <div class="mod-icon" style="--c:var(--violet)">📁</div>
                         <h4>Dossiê de Homologação Auditável</h4>
                         <p>PDFs com carimbo de tempo comprovando due diligence. Essencial para auditorias da
                             Receita Federal e cumprimento da Lei 9.613 (antilavagem).</p>
                     </div>
                     <div class="module-card" data-reveal>
-                        <div class="mod-icon" style="--c:#F59E0B">🔔</div>
+                        <div class="mod-icon" style="--c:var(--gold)">🔔</div>
                         <h4>Monitoramento Contínuo</h4>
                         <p>Alertas em tempo real quando um fornecedor aprovado entra em lista restritiva.
                             Você é avisado antes de fechar o próximo pedido — zero risco de embargo retroativo.</p>
                     </div>
                     <div class="module-card" data-reveal data-delay="1">
-                        <div class="mod-icon" style="--c:#EF4444">⚠️</div>
+                        <div class="mod-icon" style="--c:var(--red)">⚠️</div>
                         <h4>Risk Score Dinâmico</h4>
                         <p>Score de risco 0–100 atualizado continuamente com base em exposição cambial do
                             fabricante, disputas aduaneiras e variações societárias na origem.</p>
                     </div>
                     <div class="module-card" data-reveal data-delay="2">
-                        <div class="mod-icon" style="--c:#06B6D4">🔌</div>
+                        <div class="mod-icon" style="--c:var(--primary-blue)">🔌</div>
                         <h4>API & Webhooks</h4>
                         <p>Integração com ERP, WMS e sistemas de compras corporativo via API REST. Webhooks
                             em tempo real. SDK para Go, Node.js e Python.</p>
@@ -491,37 +489,37 @@
             <div class="tab-panel" id="tab-capital">
                 <div class="modules-grid">
                     <div class="module-card" data-reveal>
-                        <div class="mod-icon" style="--c:#F59E0B">💰</div>
+                        <div class="mod-icon" style="--c:var(--gold)">💰</div>
                         <h4>Multi-Currency Wallet B2B</h4>
                         <p>Saldos em USD, EUR, CNY e BRL. Pagamentos T/T para fábricas globais com spreads
                             a partir de 0,5% — contra 2%–4% dos bancos de varejo.</p>
                     </div>
                     <div class="module-card" data-reveal data-delay="1">
-                        <div class="mod-icon" style="--c:#06B6D4">📊</div>
+                        <div class="mod-icon" style="--c:var(--primary-blue)">📊</div>
                         <h4>Hedge Cambial & NDF</h4>
                         <p>Trave taxas de câmbio para contratos futuros. Operações de NDF e opções cambiais
                             no painel — sem ligar para mesa do banco nem abrir conta em corretora.</p>
                     </div>
                     <div class="module-card" data-reveal data-delay="2">
-                        <div class="mod-icon" style="--c:#10B981">⚡</div>
+                        <div class="mod-icon" style="--c:var(--emerald)">⚡</div>
                         <h4>Antecipação ACC/ACE</h4>
                         <p>Antecipe recebíveis de exportação com taxa competitiva e análise de crédito em D+0.
                             Sem 7 a 14 dias de burocracia bancária.</p>
                     </div>
                     <div class="module-card" data-reveal>
-                        <div class="mod-icon" style="--c:#8B5CF6">🔒</div>
+                        <div class="mod-icon" style="--c:var(--violet)">🔒</div>
                         <h4>Escrow Lock Contratual</h4>
                         <p>Fundos liberados ao fornecedor estrangeiro apenas após confirmação do B/L e inspeção
                             SGS. Seu caixa protegido em toda a cadeia logística.</p>
                     </div>
                     <div class="module-card" data-reveal data-delay="1">
-                        <div class="mod-icon" style="--c:#EF4444">📑</div>
+                        <div class="mod-icon" style="--c:var(--red)">📑</div>
                         <h4>BACEN/PTAX Automático</h4>
                         <p>Declaração de Câmbio (DC) gerada automaticamente. Integração com SISBACEN para
                             prestação de contas em tempo real. Sem risco de atraso regulatório.</p>
                     </div>
                     <div class="module-card" data-reveal data-delay="2">
-                        <div class="mod-icon" style="--c:#F59E0B">🔗</div>
+                        <div class="mod-icon" style="--c:var(--gold)">🔗</div>
                         <h4>ERP & API REST</h4>
                         <p>Conexão com SAP, TOTVS, Oracle e outros ERPs. Os dados de câmbio e financeiro
                             alimentam sua contabilidade automaticamente — zero retrabalho.</p>
@@ -688,42 +686,110 @@
         </div>
     </section>
 
-    <!-- ─── SIMULADOR DRAWBACK ────────────────────────────────── -->
+    <!-- ─── SIMULADOR UNIFICADO ────────────────────────────────── -->
     <section class="section" id="simulador">
         <div class="container">
             <div class="sim-box" data-reveal>
                 <div class="sim-glow"></div>
                 <div class="sim-inner">
                     <div class="sim-left">
-                        <div class="section-tag tag-gold">Tax Engine · Simulação ao vivo</div>
-                        <h2>Descubra agora quanto você<br>pode recuperar com Drawback</h2>
-                        <p>Informe o NCM e o valor anual importado. O Tax Engine calcula instantaneamente a suspensão
-                            de II, IPI, PIS/COFINS e ICMS — com base nas alíquotas vigentes da TIPI e do RIPI.</p>
+                        <div class="section-tag tag-gold">Simulações de Eficiência · Navant Ecomex</div>
+                        <h2>Simule seus ganhos em<br>cada pilar operacional</h2>
+                        <p>Escolha uma das abas abaixo para calcular suas economias tributárias, economia em spread cambial ou auditar a conformidade de fornecedores.</p>
 
-                        <form class="sim-form" id="drawback-form">
-                            <div>
-                                <label for="sim-ncm">Código NCM da mercadoria</label>
-                                <input id="sim-ncm" type="text"
-                                    placeholder="Ex: 8542.31.90  ·  85  ·  7208" autocomplete="off" required>
-                            </div>
-                            <div>
-                                <label for="sim-amount">Valor anual importado (R$)</label>
-                                <input id="sim-amount" type="number"
-                                    placeholder="Ex: 5000000" min="1" required>
-                            </div>
-                            <button type="submit" class="btn-gold btn-full" id="sim-btn">
-                                Calcular suspensão tributária
-                                <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
-                                    <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </button>
-                        </form>
+                        <div class="sim-tabs">
+                            <button class="sim-tab-btn active" data-sim-tab="drawback">📦 Drawback (Export)</button>
+                            <button class="sim-tab-btn" data-sim-tab="cambio">💱 Câmbio (Capital)</button>
+                            <button class="sim-tab-btn" data-sim-tab="compliance">🛡 Compliance (Sourcing)</button>
+                        </div>
+
+                        <!-- PANEL 1: Drawback (Export) -->
+                        <div class="sim-panel active" id="sim-panel-drawback">
+                            <form class="sim-form" id="drawback-form">
+                                <div>
+                                    <label for="sim-ncm">Código NCM da mercadoria</label>
+                                    <input id="sim-ncm" type="text"
+                                        placeholder="Ex: 8542.31.90  ·  85  ·  7208" autocomplete="off" required>
+                                </div>
+                                <div>
+                                    <label for="sim-amount">Valor anual importado (R$)</label>
+                                    <input id="sim-amount" type="number"
+                                        placeholder="Ex: 5000000" min="1" required>
+                                </div>
+                                <button type="submit" class="btn-gold btn-full" id="sim-btn">
+                                    Calcular suspensão tributária
+                                    <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
+                                        <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- PANEL 2: Câmbio (Capital) -->
+                        <div class="sim-panel" id="sim-panel-cambio">
+                            <form class="sim-form" id="cambio-form">
+                                <div>
+                                    <label for="sim-cambio-amount">Volume de Câmbio Anual (USD)</label>
+                                    <input id="sim-cambio-amount" type="number"
+                                        placeholder="Ex: 2000000" min="1" required>
+                                </div>
+                                <div>
+                                    <label for="sim-cambio-spread">Spread médio cobrado pelo seu banco (%)</label>
+                                    <input id="sim-cambio-spread" type="number" step="0.1"
+                                        placeholder="Ex: 2.5" min="0.1" max="10.0" required>
+                                </div>
+                                <button type="submit" class="btn-primary btn-full" id="sim-cambio-btn">
+                                    Calcular economia cambial
+                                    <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
+                                        <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- PANEL 3: Compliance (Sourcing) -->
+                        <div class="sim-panel" id="sim-panel-compliance">
+                            <form class="sim-form" id="compliance-form">
+                                <div>
+                                    <label for="sim-comp-name">Fornecedor Estrangeiro (Mocks)</label>
+                                    <select id="sim-comp-name" required>
+                                        <option value="">Selecione um fornecedor para testar</option>
+                                        <option value="Shenzhen Semiconductor Ltd." data-country="CN">Shenzhen Semiconductor Ltd. (China)</option>
+                                        <option value="Taipei Precision Tools Corp." data-country="TW">Taipei Precision Tools Corp. (Taiwan)</option>
+                                        <option value="Volgograd Industrial Machinery" data-country="RU">Volgograd Industrial Machinery (Rússia — Embargado)</option>
+                                        <option value="Munich Heavy Equipment GmbH" data-country="DE">Munich Heavy Equipment GmbH (Alemanha)</option>
+                                        <option value="Bengaluru Software Systems" data-country="IN">Bengaluru Software Systems (Índia)</option>
+                                        <option value="Texas Steel & Alloy Corp." data-country="US">Texas Steel & Alloy Corp. (Estados Unidos)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="sim-comp-country">País de Origem</label>
+                                    <select id="sim-comp-country" required>
+                                        <option value="">Selecione o país</option>
+                                        <option value="CN">China</option>
+                                        <option value="TW">Taiwan</option>
+                                        <option value="US">Estados Unidos</option>
+                                        <option value="RU">Rússia (Sanções ativas)</option>
+                                        <option value="DE">Alemanha</option>
+                                        <option value="IN">Índia</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn-primary btn-full" id="sim-comp-btn" style="background:var(--emerald); border-color:var(--emerald)">
+                                    Iniciar Auditoria de Fornecedor
+                                    <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
+                                        <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+
                     </div>
 
                     <div class="sim-result" id="sim-result">
-                        Preencha o NCM e o valor ao lado para o Tax Engine calcular sua
-                        suspensão tributária via Drawback Integrado.
+                        Escolha uma aba e preencha os dados ao lado para simular o retorno operacional da plataforma.
                     </div>
                 </div>
             </div>
@@ -807,8 +873,8 @@
                                     stroke-linecap="round" stroke-linejoin="round" opacity="0.9" fill="none"/>
                                 <defs>
                                     <linearGradient id="flg1" x1="0" y1="0" x2="36" y2="36">
-                                        <stop stop-color="#06B6D4"/>
-                                        <stop offset="1" stop-color="#F59E0B"/>
+                                        <stop stop-color="#1e40af"/>
+                                        <stop offset="1" stop-color="#b45309"/>
                                     </linearGradient>
                                 </defs>
                             </svg>

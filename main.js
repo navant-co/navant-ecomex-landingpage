@@ -44,8 +44,10 @@ let feedIdx = 0;
 const tickFeed = () => {
     feedItems.forEach(fi => fi.style.cssText = '');
     const active = feedItems[feedIdx % feedItems.length];
-    active.style.background  = 'rgba(6,182,212,0.06)';
-    active.style.borderColor = 'rgba(6,182,212,0.20)';
+    if (active) {
+        active.style.background  = 'var(--primary-blue-l)';
+        active.style.borderColor = 'var(--primary-blue-b)';
+    }
     setTimeout(() => { if (active) active.style.cssText = ''; }, 1300);
     feedIdx++;
 };
@@ -222,6 +224,157 @@ function runDrawback(e) {
 const simForm = document.getElementById('drawback-form');
 if (simForm) simForm.addEventListener('submit', runDrawback);
 
+// ─── SIMULADOR TABS ──────────────────────────────────────────
+document.querySelectorAll('.sim-tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const tab = btn.dataset.simTab;
+        document.querySelectorAll('.sim-tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.sim-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(`sim-panel-${tab}`)?.classList.add('active');
+        
+        // Reset result panel to default state
+        const result = document.getElementById('sim-result');
+        if (result) {
+            result.classList.remove('has-result');
+            if (tab === 'drawback') {
+                result.textContent = 'Preencha o NCM e o valor ao lado para o Tax Engine calcular sua suspensão tributária via Drawback Integrado.';
+            } else if (tab === 'cambio') {
+                result.textContent = 'Informe o volume de câmbio e o spread bancário atual ao lado para simular sua economia com a Navant.';
+            } else {
+                result.textContent = 'Informe o nome do fornecedor e o país de origem ao lado para simular a auditoria de compliance OFAC.';
+            }
+        }
+    });
+});
+
+// ─── CÂMBIO SIMULATOR ────────────────────────────────────────
+const cambioForm = document.getElementById('cambio-form');
+if (cambioForm) {
+    cambioForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const amount = parseFloat(document.getElementById('sim-cambio-amount').value) || 0;
+        const spread = parseFloat(document.getElementById('sim-cambio-spread').value) || 0;
+        const btn = document.getElementById('sim-cambio-btn');
+        const result = document.getElementById('sim-result');
+        
+        btn.disabled = true;
+        btn.innerHTML = `<span class="spinner"></span>&nbsp;Consultando cotações em tempo real...`;
+        
+        setTimeout(() => {
+            const usdRate = 5.15;
+            const bankCost = amount * (spread / 100) * usdRate;
+            const navantCost = amount * 0.005 * usdRate;
+            const savings = bankCost - navantCost;
+            
+            result.classList.add('has-result');
+            result.innerHTML = `
+                <div class="result-total-label">Economia Cambial Anual Estimada (Capital)</div>
+                <div class="result-total" style="color:var(--primary-blue)">${fmt(savings)}</div>
+                <div class="tax-row">
+                    <span class="tax-label">Volume Cambial Solicitado</span>
+                    <span class="tax-value">U$ ${amount.toLocaleString('pt-BR')}</span>
+                </div>
+                <div class="tax-row">
+                    <span class="tax-label">Custo no seu Banco (${spread.toFixed(1)}% spread)</span>
+                    <span class="tax-value" style="color:var(--red)">${fmt(bankCost)}</span>
+                </div>
+                <div class="tax-row highlight">
+                    <span class="tax-label">Custo na Navant Ecomex (0.5% spread)</span>
+                    <span class="tax-value" style="color:var(--primary-blue)">${fmt(navantCost)}</span>
+                </div>
+                <p class="sim-confidence">★ Liquidação D+0 inclusa · Proteção cambial (NDF) contratada em tempo real</p>
+                <a href="#cta" class="sim-cta" style="background:var(--primary-blue)">Habilitar Câmbio D+0 →</a>
+            `;
+            btn.disabled = false;
+            btn.innerHTML = `Simular outro valor`;
+        }, 1500);
+    });
+}
+
+// ─── COMPLIANCE SIMULATOR ────────────────────────────────────
+const complianceForm = document.getElementById('compliance-form');
+const compNameSelect = document.getElementById('sim-comp-name');
+if (compNameSelect) {
+    compNameSelect.addEventListener('change', e => {
+        const opt = e.target.options[e.target.selectedIndex];
+        const country = opt.getAttribute('data-country');
+        const countrySelect = document.getElementById('sim-comp-country');
+        if (countrySelect && country) {
+            countrySelect.value = country;
+        }
+    });
+}
+
+if (complianceForm) {
+    complianceForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('sim-comp-name').value;
+        const country = document.getElementById('sim-comp-country').value;
+        const btn = document.getElementById('sim-comp-btn');
+        const result = document.getElementById('sim-result');
+        
+        btn.disabled = true;
+        btn.innerHTML = `<span class="spinner"></span>&nbsp;Conectando a bases aduaneiras...`;
+        
+        const msgs = [
+            "Conectando a base OFAC SDN...",
+            "Cruzando dados societários na origem...",
+            "Auditando listas Interpol e ONU...",
+            "Finalizando dossiê de auditoria..."
+        ];
+        let mi = 0;
+        const ticker = setInterval(() => {
+            if (mi < msgs.length - 1) btn.innerHTML = `<span class="spinner"></span>&nbsp;${msgs[++mi]}`;
+        }, 500);
+        
+        setTimeout(() => {
+            clearInterval(ticker);
+            result.classList.add('has-result');
+            
+            if (country === 'RU') {
+                result.innerHTML = `
+                    <div class="result-total-label" style="color:var(--red)">🚨 EMBARGO ALCANDEGÁRIO DETECTADO</div>
+                    <div class="result-total" style="color:var(--red); font-size:1.6rem; margin-bottom:12px;">Transação Bloqueada</div>
+                    <p style="font-size:0.8rem; line-height:1.5; color:var(--text-b); margin-bottom:16px;">
+                        A entidade <strong>${name}</strong> (Rússia) foi identificada em listas de sanções ativas da <strong>OFAC SDN</strong> e diretrizes aduaneiras brasileiras de restrição.
+                    </p>
+                    <div class="tax-row" style="border-color:var(--red-b); background:var(--red-l)">
+                        <span class="tax-label" style="color:var(--red)">KYB Score / Risco</span>
+                        <span class="tax-value" style="color:var(--red)">12 / 100 (Risco Crítico)</span>
+                    </div>
+                    <div class="tax-row">
+                        <span class="tax-label">Listas Atingidas</span>
+                        <span class="tax-value">OFAC SDN, UK Russia Sanctions</span>
+                    </div>
+                    <p class="sim-confidence" style="color:var(--red)">⚠️ Atenção: Fechar contrato com este parceiro pode acarretar multas e bloqueio aduaneiro de 3 a 9 meses.</p>
+                `;
+            } else {
+                const score = 94 + Math.floor(Math.random() * 6);
+                result.innerHTML = `
+                    <div class="result-total-label" style="color:var(--emerald)">✓ CONFORMIDADE CONFIRMADA</div>
+                    <div class="result-total" style="color:var(--emerald); font-size:1.6rem; margin-bottom:12px;">Fornecedor Aprovado</div>
+                    <p style="font-size:0.8rem; line-height:1.5; color:var(--text-b); margin-bottom:16px;">
+                        Auditoria de compliance concluída para <strong>${name}</strong>. Nenhuma ocorrência ativa encontrada em listas restritivas internacionais ou base da Receita Federal.
+                    </p>
+                    <div class="tax-row" style="border-color:var(--emerald-b); background:var(--emerald-l)">
+                        <span class="tax-label" style="color:var(--emerald)">KYB Score / Conformidade</span>
+                        <span class="tax-value" style="color:var(--emerald)">${score} / 100 (Excelente)</span>
+                    </div>
+                    <div class="tax-row">
+                        <span class="tax-label">Status da Análise</span>
+                        <span class="tax-value">Aprovado (OFAC, Interpol, ONU OK)</span>
+                    </div>
+                    <p class="sim-confidence" style="color:var(--text-m)">★ Dossiê de homologação gerado e arquivado para auditorias do RADAR.</p>
+                    <a href="#cta" class="sim-cta" style="background:var(--emerald); border-color:var(--emerald)">Gerar Certificado Completo →</a>
+                `;
+            }
+            btn.disabled = false;
+            btn.innerHTML = `Auditar outro fornecedor`;
+        }, 2200);
+    });
+}
+
 // ─── CTA HANDLER ─────────────────────────────────────────────
 function handleCTA() {
     const fields = {
@@ -289,5 +442,5 @@ function handleLead() {
 
 // ─── Active nav style injection
 const s = document.createElement('style');
-s.textContent = `.nav-active { color: #EFF6FF !important; } .nav-active::after { width: 100% !important; }`;
+s.textContent = `.nav-active { color: var(--primary-blue) !important; } .nav-active::after { width: 100% !important; }`;
 document.head.appendChild(s);
