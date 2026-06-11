@@ -7,7 +7,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ─── ACTIVE NAV ──────────────────────────────────────────────
-const sections   = [...document.querySelectorAll('section[id]')];
+const sections = [...document.querySelectorAll('section[id]')];
 const navAnchors = [...document.querySelectorAll('.nav-links a')];
 window.addEventListener('scroll', () => {
     let curr = '';
@@ -45,7 +45,7 @@ const tickFeed = () => {
     feedItems.forEach(fi => fi.style.cssText = '');
     const active = feedItems[feedIdx % feedItems.length];
     if (active) {
-        active.style.background  = 'var(--primary-blue-l)';
+        active.style.background = 'var(--primary-blue-l)';
         active.style.borderColor = 'var(--primary-blue-b)';
     }
     setTimeout(() => { if (active) active.style.cssText = ''; }, 1300);
@@ -59,21 +59,21 @@ const kpiEls = [...document.querySelectorAll('.kpi-value[data-count]')];
 const kpiObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-        const el     = entry.target;
+        const el = entry.target;
         const target = parseFloat(el.dataset.count);
-        const fmt    = el.dataset.format;
-        const dur    = 1600;
+        const fmt = el.dataset.format;
+        const dur = 1600;
         let start;
         const step = ts => {
             if (!start) start = ts;
-            const p    = Math.min((ts - start) / dur, 1);
+            const p = Math.min((ts - start) / dur, 1);
             const ease = 1 - Math.pow(1 - p, 3);
-            const val  = target * ease;
-            if      (fmt === 'currency') el.textContent = `R$ ${(val / 1e6).toFixed(1)}M`;
-            else if (fmt === 'pct')      el.textContent = `${val.toFixed(1)}%`;
-            else if (fmt === 'int')      el.textContent = Math.round(val).toLocaleString('pt-BR');
-            else if (fmt === 'usd')      el.textContent = `U$ ${(val / 1e6).toFixed(0)}M`;
-            else if (fmt === 'days')     el.textContent = `D+${Math.round(val)}`;
+            const val = target * ease;
+            if (fmt === 'currency') el.textContent = `R$ ${(val / 1e6).toFixed(1)}M`;
+            else if (fmt === 'pct') el.textContent = `${val.toFixed(1)}%`;
+            else if (fmt === 'int') el.textContent = Math.round(val).toLocaleString('pt-BR');
+            else if (fmt === 'usd') el.textContent = `U$ ${(val / 1e6).toFixed(0)}M`;
+            else if (fmt === 'days') el.textContent = `D+${Math.round(val)}`;
             if (p < 1) requestAnimationFrame(step);
         };
         requestAnimationFrame(step);
@@ -87,20 +87,20 @@ const statEls = [...document.querySelectorAll('.stat-value[data-count]')];
 const statObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-        const el     = entry.target;
+        const el = entry.target;
         const target = parseFloat(el.dataset.count);
-        const fmt    = el.dataset.format;
-        const dur    = 1800;
+        const fmt = el.dataset.format;
+        const dur = 1800;
         let start;
         const step = ts => {
             if (!start) start = ts;
-            const p    = Math.min((ts - start) / dur, 1);
+            const p = Math.min((ts - start) / dur, 1);
             const ease = 1 - Math.pow(1 - p, 3);
-            const val  = target * ease;
-            if      (fmt === 'currency-m') el.textContent = `R$ ${(val).toFixed(0)}M+`;
-            else if (fmt === 'int-plus')   el.textContent = `${Math.round(val)}+`;
-            else if (fmt === 'pct')        el.textContent = `${val.toFixed(1)}%`;
-            else if (fmt === 'static')     el.textContent = el.dataset.display || '';
+            const val = target * ease;
+            if (fmt === 'currency-m') el.textContent = `R$ ${(val).toFixed(0)}M+`;
+            else if (fmt === 'int-plus') el.textContent = `${Math.round(val)}+`;
+            else if (fmt === 'pct') el.textContent = `${val.toFixed(1)}%`;
+            else if (fmt === 'static') el.textContent = el.dataset.display || '';
             if (p < 1) requestAnimationFrame(step);
         };
         requestAnimationFrame(step);
@@ -114,7 +114,7 @@ const orb1 = document.querySelector('.bg-orb-1');
 const orb2 = document.querySelector('.bg-orb-2');
 const orb3 = document.querySelector('.bg-orb-3');
 window.addEventListener('mousemove', e => {
-    const mx = (e.clientX / window.innerWidth  - 0.5) * 25;
+    const mx = (e.clientX / window.innerWidth - 0.5) * 25;
     const my = (e.clientY / window.innerHeight - 0.5) * 25;
     if (orb1) orb1.style.transform = `translate(${mx * 0.4}px, ${my * 0.4}px)`;
     if (orb2) orb2.style.transform = `translate(${-mx * 0.3}px, ${-my * 0.3}px)`;
@@ -145,80 +145,136 @@ const CHAPTER_RATES = {
 };
 const DEFAULT_RATES = { ii: 0.14, ipi: 0.08, label: 'Classificação Geral' };
 const PIS_COFINS = 0.1175;
-const ICMS_AVG   = 0.18;
+const ICMS_AVG = 0.18;
 
-const fmt    = n  => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(n);
-const fmtPct = v  => (v * 100).toFixed(2).replace('.00', '') + '%';
+const fmt = n => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(n);
+const fmtPct = v => (v * 100).toFixed(2).replace('.00', '') + '%';
 
 function runDrawback(e) {
     e.preventDefault();
-    const ncm    = document.getElementById('sim-ncm').value.trim();
-    const amount = parseFloat(document.getElementById('sim-amount').value) || 0;
-    if (!ncm || amount <= 0) return;
 
-    const btn    = document.getElementById('sim-btn');
+    const amount = parseFloat(
+        document.getElementById('sim-amount').value
+    ) || 0;
+
+    if (amount <= 0) return;
+
+    const btn = document.getElementById('sim-btn');
     const result = document.getElementById('sim-result');
 
     btn.disabled = true;
-    btn.innerHTML = `<span class="spinner"></span>&nbsp;Auditando legislação tributária...`;
-
-    const chapter = ncm.replace(/\D/g, '').substring(0, 2);
-    const rates   = CHAPTER_RATES[chapter] || DEFAULT_RATES;
+    btn.innerHTML =
+        `<span class="spinner"></span>&nbsp;Analisando operação de exportação...`;
 
     const msgs = [
-        `Identificado: ${rates.label || 'Cap. ' + chapter}...`,
-        `Cruzando NCM ${ncm} com Tabela TIPI...`,
-        `Calculando alíquotas II (${fmtPct(rates.ii)}) e IPI (${fmtPct(rates.ipi)})...`,
-        `Apurando base PIS/COFINS e ICMS...`,
-        `Gerando Ato Concessório estimado...`,
+        'Mapeando fluxo operacional...',
+        'Analisando custos administrativos...',
+        'Calculando eficiência documental...',
+        'Estimando ganhos logísticos...',
+        'Gerando diagnóstico operacional...'
     ];
+
     let mi = 0;
+
     const ticker = setInterval(() => {
-        if (mi < msgs.length - 1) btn.innerHTML = `<span class="spinner"></span>&nbsp;${msgs[++mi]}`;
+        if (mi < msgs.length - 1) {
+            btn.innerHTML =
+                `<span class="spinner"></span>&nbsp;${msgs[++mi]}`;
+        }
     }, 700);
 
     setTimeout(() => {
+
         clearInterval(ticker);
 
-        const iiVal     = amount * rates.ii;
-        const ipiVal    = amount * rates.ipi;
-        const pisCofVal = amount * PIS_COFINS;
-        const icmsBase  = amount + iiVal + ipiVal + pisCofVal;
-        const icmsVal   = icmsBase * ICMS_AVG;
-        const total     = iiVal + ipiVal + pisCofVal + icmsVal;
-        const score     = 94 + Math.floor(Math.random() * 5);
-        const mensal    = total / 12;
+        // Estimativas conservadoras
+
+        const operacional = amount * 0.015; // 1.5%
+        const documental = amount * 0.005;  // 0.5%
+        const compliance = amount * 0.003;  // 0.3%
+
+        const total =
+            operacional +
+            documental +
+            compliance;
+
+        const horasEconomizadas =
+            Math.round(amount / 15000);
+
+        const score =
+            95 + Math.floor(Math.random() * 4);
 
         result.classList.add('has-result');
+
         result.innerHTML = `
-            <div class="result-total-label">Suspensão estimada / 12 meses · ${rates.label || 'NCM Cap. ' + chapter}</div>
-            <div class="result-total">${fmt(total)}</div>
-            <div class="tax-row">
-                <span class="tax-label">II — Imposto de Importação (${fmtPct(rates.ii)})</span>
-                <span class="tax-value">${fmt(iiVal)}</span>
+            <div class="result-total-label">
+                Potencial de eficiência operacional anual
             </div>
-            <div class="tax-row">
-                <span class="tax-label">IPI (${fmtPct(rates.ipi)})</span>
-                <span class="tax-value">${fmt(ipiVal)}</span>
+
+            <div class="result-total">
+                ${fmt(total)}
             </div>
+
             <div class="tax-row">
-                <span class="tax-label">PIS/COFINS (${fmtPct(PIS_COFINS)})</span>
-                <span class="tax-value">${fmt(pisCofVal)}</span>
+                <span class="tax-label">
+                    🚢 Redução de custos operacionais
+                </span>
+                <span class="tax-value">
+                    ${fmt(operacional)}
+                </span>
             </div>
+
+            <div class="tax-row">
+                <span class="tax-label">
+                    📄 Automação documental (OCR + Siscomex)
+                </span>
+                <span class="tax-value">
+                    ${fmt(documental)}
+                </span>
+            </div>
+
+            <div class="tax-row">
+                <span class="tax-label">
+                    🛡 Menos erros e retrabalho
+                </span>
+                <span class="tax-value">
+                    ${fmt(compliance)}
+                </span>
+            </div>
+
             <div class="tax-row highlight">
-                <span class="tax-label">ICMS (~18% sobre base total)</span>
-                <span class="tax-value">${fmt(icmsVal)}</span>
+                <span class="tax-label">
+                    ⏱ Tempo administrativo recuperado
+                </span>
+                <span class="tax-value">
+                    ${horasEconomizadas} h/ano
+                </span>
             </div>
-            <p class="sim-confidence">★ Confidence Score ${score}% · Base TIPI atualizada · ${fmt(mensal)}/mês de imposto suspenso</p>
-            <a href="#cta" class="sim-cta">Implementar na sua empresa →</a>
+
+            <p class="sim-confidence">
+                ★ Efficiency Score ${score}% ·
+                Baseado em automação de exportação,
+                integração Siscomex e gestão documental
+            </p>
+
+            <a href="#cta" class="sim-cta">
+                Quero otimizar minhas exportações →
+            </a>
         `;
 
         btn.disabled = false;
-        btn.innerHTML = `Auditar outro NCM
+
+        btn.innerHTML = `
+            Simular novamente
             <svg width="14" height="14" viewBox="0 0 18 18" fill="none">
-                <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>`;
-    }, 3800);
+                <path d="M3 9h12M9 3l6 6-6 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"/>
+            </svg>
+        `;
+
+    }, 3500);
 }
 
 const simForm = document.getElementById('drawback-form');
@@ -232,7 +288,7 @@ document.querySelectorAll('.sim-tab-btn').forEach(btn => {
         document.querySelectorAll('.sim-panel').forEach(p => p.classList.remove('active'));
         btn.classList.add('active');
         document.getElementById(`sim-panel-${tab}`)?.classList.add('active');
-        
+
         // Reset result panel to default state
         const result = document.getElementById('sim-result');
         if (result) {
@@ -257,16 +313,16 @@ if (cambioForm) {
         const spread = parseFloat(document.getElementById('sim-cambio-spread').value) || 0;
         const btn = document.getElementById('sim-cambio-btn');
         const result = document.getElementById('sim-result');
-        
+
         btn.disabled = true;
         btn.innerHTML = `<span class="spinner"></span>&nbsp;Consultando cotações em tempo real...`;
-        
+
         setTimeout(() => {
             const usdRate = 5.15;
             const bankCost = amount * (spread / 100) * usdRate;
             const navantCost = amount * 0.005 * usdRate;
             const savings = bankCost - navantCost;
-            
+
             result.classList.add('has-result');
             result.innerHTML = `
                 <div class="result-total-label">Economia Cambial Anual Estimada (Capital)</div>
@@ -313,10 +369,10 @@ if (complianceForm) {
         const country = document.getElementById('sim-comp-country').value;
         const btn = document.getElementById('sim-comp-btn');
         const result = document.getElementById('sim-result');
-        
+
         btn.disabled = true;
         btn.innerHTML = `<span class="spinner"></span>&nbsp;Conectando a bases aduaneiras...`;
-        
+
         const msgs = [
             "Conectando a base OFAC SDN...",
             "Cruzando dados societários na origem...",
@@ -327,11 +383,11 @@ if (complianceForm) {
         const ticker = setInterval(() => {
             if (mi < msgs.length - 1) btn.innerHTML = `<span class="spinner"></span>&nbsp;${msgs[++mi]}`;
         }, 500);
-        
+
         setTimeout(() => {
             clearInterval(ticker);
             result.classList.add('has-result');
-            
+
             if (country === 'RU') {
                 result.innerHTML = `
                     <div class="result-total-label" style="color:var(--red)">🚨 EMBARGO ALCANDEGÁRIO DETECTADO</div>
@@ -379,18 +435,18 @@ if (complianceForm) {
 function handleCTA() {
     const fields = {
         empresa: document.getElementById('cta-empresa'),
-        nome:    document.getElementById('cta-nome'),
-        email:   document.getElementById('cta-email'),
-        phone:   document.getElementById('cta-phone'),
+        nome: document.getElementById('cta-nome'),
+        email: document.getElementById('cta-email'),
+        phone: document.getElementById('cta-phone'),
     };
-    const emailOk   = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email?.value || '');
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email?.value || '');
     const allFilled = Object.values(fields).every(f => f?.value?.trim());
 
     if (!allFilled || !emailOk) {
         Object.values(fields).forEach(f => {
             if (!f?.value?.trim() || (f === fields.email && !emailOk)) {
                 f.style.borderColor = 'rgba(239,68,68,0.5)';
-                f.style.boxShadow   = '0 0 0 3px rgba(239,68,68,0.08)';
+                f.style.boxShadow = '0 0 0 3px rgba(239,68,68,0.08)';
                 setTimeout(() => { if (f) { f.style.borderColor = ''; f.style.boxShadow = ''; } }, 2500);
             }
         });
@@ -428,7 +484,7 @@ function handleLead() {
     if (!emailOk) {
         if (email) {
             email.style.borderColor = 'rgba(239,68,68,0.5)';
-            email.style.boxShadow   = '0 0 0 3px rgba(239,68,68,0.08)';
+            email.style.boxShadow = '0 0 0 3px rgba(239,68,68,0.08)';
             setTimeout(() => { email.style.borderColor = ''; email.style.boxShadow = ''; }, 2500);
             email.focus();
         }
