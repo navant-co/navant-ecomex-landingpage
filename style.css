@@ -13,86 +13,52 @@
 }
 
 :root {
-    /* — Primary Colors (Corporate B2B) — */
-    --primary: #0f172a;
-    /* Slate 900 */
-    --primary-blue: #0f356c;
-    /* Deep Oxford Navy Blue (More Premium Contrast) */
-    --primary-blue-l: #eff6ff;
-    /* Blue 50 */
-    --primary-blue-b: #93c5fd;
-    /* Blue 300 (Higher contrast) */
 
-    /* — Accent Colors (Finance & Compliance) — */
-    --gold: #92400e;
-    /* Deep Bronze/Amber (Amber 800) */
-    --gold-l: #fffbeb;
-    /* Amber 50 */
-    --gold-b: #fcd34d;
-    /* Amber 300 */
+    /* Brand */
+    --primary: #0b1726;
+    --primary-hover: #102236;
 
-    --emerald: #065f46;
-    /* Forest Emerald (Emerald 800) */
-    --emerald-l: #ecfdf5;
-    /* Emerald 50 */
-    --emerald-b: #6ee7b7;
-    /* Emerald 300 */
+    /* Navy Ecomex */
+    --primary-blue: #12395b;
+    --primary-blue-l: #edf5fb;
+    --primary-blue-b: #8ab7d4;
 
-    --red: #9f1239;
-    /* Rose Red (Rose 800) */
-    --red-l: #fff1f2;
-    /* Rose 50 */
+    /* Trade & Compliance */
+    --secondary: #0f766e;
+    --secondary-l: #ecfdf5;
+    --secondary-b: #5eead4;
+
+    /* ROI */
+    --gold: #c08b2c;
+    --gold-l: #fff8e7;
+    --gold-b: #f2c66a;
+
+    /* Success */
+    --emerald: #15803d;
+    --emerald-l: #ecfdf3;
+    --emerald-b: #86efac;
+
+    /* Alert */
+    --red: #c24141;
+    --red-l: #fff1f1;
     --red-b: #fca5a5;
-    /* Rose 300 */
 
-    --violet: #5b21b6;
-    /* Violet (Violet 800) */
-    --violet-l: #f5f3ff;
-    /* Violet 50 */
-    --violet-b: #c084fc;
-    /* Violet 400 */
-
-    /* — Backgrounds & Surfaces — */
-    --bg-main: #f8fafc;
-    /* Slate 50 */
+    /* Background */
+    --bg-main: #f3f6f8;
     --bg-card: #ffffff;
-    /* Pure White */
-    --bg-surf: #f1f5f9;
-    /* Slate 100 */
-    --bg-surf-2: #cbd5e1;
-    /* Slate 300 (More defined surface fill) */
+    --bg-surf: #e8edf2;
+    --bg-surf-2: #d5dee7;
 
-    /* — Borders — */
-    --line: #cbd5e1;
-    /* Slate 300 (Crisp, visible borders) */
-    --line-light: #e2e8f0;
-    /* Slate 200 (Clean, light division lines) */
-    --line-focus: #94a3b8;
-    /* Slate 400 */
+    /* Borders */
+    --line: #d7e1ea;
+    --line-light: #e8eef3;
+    --line-focus: #90a4b7;
 
-    /* — Typography — */
-    --text-h: #0f172a;
-    /* Slate 900 */
-    --text-b: #1e293b;
-    /* Slate 800 (Body text, much more readable/premium) */
-    --text-m: #475569;
-    /* Slate 600 (Secondary text) */
-    --text-light: #64748b;
-    /* Slate 500 (Muted/Hints) */
-
-    /* — Tokens — */
-    --r-sm: 6px;
-    --r: 12px;
-    --r-lg: 16px;
-    --r-xl: 24px;
-    --ease: cubic-bezier(0.4, 0, 0.2, 1);
-    --t: 0.25s;
-
-    /* — Shadows — */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
-    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+    /* Typography */
+    --text-h: #0b1726;
+    --text-b: #243647;
+    --text-m: #617587;
+    --text-light: #8a9bab;
 }
 
 html {
@@ -145,7 +111,7 @@ select {
     height: 700px;
     top: -100px;
     left: -10%;
-    background: #dbeafe;
+    background: #dbeef6;
 }
 
 /* Soft Blue */
@@ -154,7 +120,7 @@ select {
     height: 600px;
     top: 1200px;
     right: -5%;
-    background: #fffbeb;
+    background: #f7f3e8;
 }
 
 /* Soft Amber */
@@ -163,7 +129,7 @@ select {
     height: 500px;
     top: 2200px;
     left: -5%;
-    background: #ecfdf5;
+    background: #dff5ee;
     opacity: 0.35;
 }
 
@@ -444,6 +410,7 @@ select {
     padding-bottom: 60px;
     position: relative;
     z-index: 1;
+    background: transparent;
 }
 
 .hero-grid {
@@ -624,7 +591,11 @@ select {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--primary-blue-b), transparent);
+    background:
+        linear-gradient(90deg,
+            transparent,
+            var(--secondary-b),
+            transparent);
 }
 
 .dash-titlebar {
