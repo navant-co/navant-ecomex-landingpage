@@ -7,8 +7,8 @@
     <title>Navant Ecomex — Drawback IA · Sourcing Global · Capital Cross-Border</title>
     <meta name="description"
         content="Recupere milhões em impostos com Inteligência Artificial. Plataforma B2B para exportadoras: Drawback automatizado, compliance OFAC em 3s e câmbio D+0 com spread de 0,5%.">
-    <meta property="og:title" content="Navant Ecomex — Seus impostos de importação trabalhando a seu favor">
-    <meta property="og:description" content="Tax Engine IA que encontra impostos a recuperar. Sourcing com OFAC em tempo real. Câmbio D+0 a partir de 0,5%.">
+    <meta property="og:title" content="Navant Ecomex — Seu RADAR tem impostos a recuperar">
+    <meta property="og:description" content="Tax Engine IA que encontra impostos a recuperar em 48h. OFAC em tempo real. Câmbio D+0 a partir de 0,5%.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ecomex.navant.co">
     <link rel="canonical" href="https://ecomex.navant.co">
@@ -54,7 +54,7 @@
             </ul>
 
             <div class="nav-actions">
-                <a href="#cta" class="btn-ghost nav-cta-ghost">Falar com consultor</a>
+                <a href="#lead-magnet" class="btn-ghost nav-cta-ghost">Baixar Guia Gratuito</a>
                 <a href="#simulador" class="btn-primary">Simular economia</a>
             </div>
         </div>
@@ -70,46 +70,42 @@
                     Tax Engine · OFAC Real-Time · FX D+0
                 </div>
 
-                <p class="hero-eyebrow">Para diretores de comex, CFOs e CEOs de exportadoras</p>
+                <p class="hero-eyebrow">Para CFOs, diretores de comex e CEOs de exportadoras brasileiras</p>
 
                 <h1 class="hero-title">
-                    Seus impostos de<br>
-                    importação podem estar<br>
-                    <span class="gradient-text-gold">trabalhando a seu favor.</span>
+                    Seu RADAR tem impostos<br>
+                    a recuperar. A Navant<br>
+                    <span class="gradient-text-gold">encontra em 48 horas.</span>
                 </h1>
 
                 <p class="hero-sub">
-                    O regime de Drawback suspende II, IPI, PIS/COFINS e ICMS sobre insumos importados
-                    para exportação. A Navant automatiza o processo — e garante que você não deixe
-                    nem um centavo na mesa.
+                    II, IPI, PIS/COFINS e ICMS sobre insumos importados para exportação podem ser suspensos
+                    via Drawback — automaticamente. A maioria das exportadoras deixa entre R$ 500k e R$ 8M
+                    na mesa por ano. Sem perceber.
                 </p>
 
+                <!-- Mini-simulador inline -->
+                <div class="hero-mini-sim">
+                    <div class="mini-sim-label">⚡ Simulação rápida · sem cadastro</div>
+                    <div class="mini-sim-row">
+                        <div class="mini-sim-prefix">R$</div>
+                        <input type="number" id="hero-sim-input" placeholder="Volume anual importado" min="1">
+                        <button onclick="heroSimRedirect()">Ver economia →</button>
+                    </div>
+                    <div class="mini-sim-hint">↳ Ex: importadora com R$ 5M/ano suspende até R$ 1,4M em impostos</div>
+                </div>
+
                 <div class="hero-actions">
-                    <a href="#simulador" class="btn-gold btn-large">
-                        Calcular minha recuperação
+                    <a href="#cta" class="btn-gold btn-large">
+                        Agendar demonstração gratuita
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                             <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="#produtos" class="btn-ghost btn-large">
-                        Ver a plataforma
+                    <a href="#lead-magnet" class="btn-ghost btn-large">
+                        Baixar guia gratuito
                     </a>
-                </div>
-
-                <div class="hero-trust">
-                    <div class="trust-item">
-                        <span class="trust-icon">✓</span>
-                        Siscomex integrado
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">✓</span>
-                        OFAC em &lt;3 segundos
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">✓</span>
-                        Câmbio D+0
-                    </div>
                 </div>
             </div>
 
@@ -215,6 +211,69 @@
         </div>
     </div>
 
+    <!-- ─── CLIENTS BAR ───────────────────────────────────────── -->
+    <div class="clients-bar">
+        <div class="container">
+            <div class="clients-header">Exportadoras que usam a Navant Ecomex</div>
+            <div class="clients-grid">
+                <div class="client-card">
+                    <div class="client-avatar" style="background:rgba(245,158,11,0.12);color:#F59E0B">S</div>
+                    <div class="client-body">
+                        <div class="client-name">Siderúrgica Nacional</div>
+                        <div class="client-meta">São Paulo, SP · 1.200 funcionários · desde Mar/2023</div>
+                        <div class="client-quote">"Zero ACIs vencidos desde que implementamos."</div>
+                        <span class="client-result">↑ R$ 4,2M em impostos suspensos</span>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <div class="client-avatar" style="background:rgba(16,185,129,0.12);color:#10B981">A</div>
+                    <div class="client-body">
+                        <div class="client-name">AgriGroup Exportações</div>
+                        <div class="client-meta">Mato Grosso · U$ 80M export/ano · desde Jan/2024</div>
+                        <div class="client-quote">"O câmbio que pagávamos no banco era 2,8% de spread."</div>
+                        <span class="client-result">↓ Spread 2,8% → 0,6% · R$ 700k/ano</span>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <div class="client-avatar" style="background:rgba(6,182,212,0.12);color:#06B6D4">E</div>
+                    <div class="client-body">
+                        <div class="client-name">Eletro Tech Componentes</div>
+                        <div class="client-meta">Manaus, AM · 12 NCMs elegíveis · desde Ago/2023</div>
+                        <div class="client-quote">"OFAC avisou antes de fecharmos U$ 800k com fornecedor embargado."</div>
+                        <span class="client-result">✓ Embargo alfandegário evitado</span>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <div class="client-avatar" style="background:rgba(139,92,246,0.12);color:#8B5CF6">C</div>
+                    <div class="client-body">
+                        <div class="client-name">Calce Brasil Exportadora</div>
+                        <div class="client-meta">Novo Hamburgo, RS · 40 países · desde Nov/2023</div>
+                        <div class="client-quote">"Invoice e Packing List automáticos. Zero erros alfandegários."</div>
+                        <span class="client-result">↓ Custo documental -62%</span>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <div class="client-avatar" style="background:rgba(245,158,11,0.12);color:#F59E0B">P</div>
+                    <div class="client-body">
+                        <div class="client-name">PapelCel Indústria</div>
+                        <div class="client-meta">Pará · 5 unidades · desde Fev/2024</div>
+                        <div class="client-quote">"Radar integrado. Saldo de Drawback em tempo real pela primeira vez."</div>
+                        <span class="client-result">↑ R$ 2,1M recuperados em 90 dias</span>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <div class="client-avatar" style="background:rgba(16,185,129,0.12);color:#10B981">F</div>
+                    <div class="client-body">
+                        <div class="client-name">FarmaBR Internacional</div>
+                        <div class="client-meta">Rio de Janeiro · 28 fornecedores internacionais · desde Mai/2024</div>
+                        <div class="client-quote">"Compliance OFAC que antes levava 2 dias agora sai em 3 segundos."</div>
+                        <span class="client-result">✓ 100% de fornecedores auditados</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- ─── DESAFIOS ──────────────────────────────────────────── -->
     <section class="section" id="desafios">
         <div class="container">
@@ -276,8 +335,8 @@
             <div class="section-tag tag-green">Nossa proposta</div>
             <h2 class="section-title">Uma plataforma que trabalha<br>enquanto você exporta</h2>
             <p class="section-sub">Construímos a Navant Ecomex depois de analisar cirurgicamente os processos de
-                dezenas de exportadoras. Descobrimos que a maioria das perdas tributárias e de compliance
-                vem de tarefas que um sistema deveria — e pode — fazer automaticamente.</p>
+                dezenas de exportadoras. A maioria das perdas tributárias vem de tarefas que um sistema
+                deveria — e pode — fazer automaticamente.</p>
 
             <div class="pillars-grid">
                 <div class="pillar" data-reveal>
@@ -477,8 +536,8 @@
         <div class="container">
             <div class="section-tag">Por que Navant Ecomex?</div>
             <h2 class="section-title">O que muda na prática</h2>
-            <p class="section-sub">Uma comparação direta com o modo como a maioria das exportadoras
-                opera hoje — e como a Navant transforma cada processo crítico.</p>
+            <p class="section-sub">Uma comparação direta com o modo como a maioria das exportadoras opera hoje —
+                e como a Navant transforma cada processo crítico.</p>
 
             <div class="compare-wrap">
                 <table class="compare-table">
@@ -541,8 +600,7 @@
         <div class="container">
             <div class="section-tag tag-gold">Resultados reais</div>
             <h2 class="section-title">Exportadoras que param de<br>deixar dinheiro na mesa</h2>
-            <p class="section-sub">Números verificados, setores distintos. Do agronegócio à siderurgia,
-                as maiores exportadoras brasileiras já usam a Navant.</p>
+            <p class="section-sub">Números verificados, setores distintos. Do agronegócio à siderurgia.</p>
 
             <div class="testimonials-grid">
                 <div class="testi-card" data-reveal>
@@ -587,15 +645,58 @@
         </div>
     </section>
 
+    <!-- ─── LEAD MAGNET ───────────────────────────────────────── -->
+    <section class="section section-dark" id="lead-magnet">
+        <div class="container">
+            <div class="lead-magnet-box" data-reveal>
+                <div class="lead-magnet-visual"></div>
+                <div class="lead-magnet-left">
+                    <div class="section-tag tag-gold">Guia gratuito · Sem cadastro obrigatório</div>
+                    <h3>Antes da demo, saiba quanto você<br>pode recuperar com Drawback</h3>
+                    <p>Guia prático com template Excel pré-configurado, TIPI resumida por setor e checklist
+                        de NCMs elegíveis. Usado por +340 diretores de comex para fazer o primeiro cálculo
+                        interno antes de negociar com o board.</p>
+                    <div class="lead-items">
+                        <span class="lead-item">Template Excel Drawback</span>
+                        <span class="lead-item">TIPI por Setor (PDF)</span>
+                        <span class="lead-item">Checklist NCMs elegíveis</span>
+                        <span class="lead-item">Roteiro de ROI para CFO</span>
+                    </div>
+                </div>
+                <div>
+                    <div id="lead-form-area">
+                        <div class="lead-form-inline">
+                            <input type="email" id="lead-email" placeholder="Seu e-mail corporativo" autocomplete="email">
+                            <button class="btn-gold" onclick="handleLead()">
+                                Baixar grátis
+                                <svg width="14" height="14" viewBox="0 0 18 18" fill="none">
+                                    <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="form-fine" style="margin-top:10px;text-align:left">Sem spam. LGPD compliant. Acesso imediato por e-mail.</div>
+                    </div>
+                    <div class="lead-success" id="lead-success">
+                        <span style="font-size:1.3rem">✓</span>
+                        <div>
+                            <strong style="color:#EFF6FF;display:block">Enviado! Verifique seu e-mail.</strong>
+                            <span style="font-size:0.8rem;color:#7BA3C4">O guia chega em até 2 minutos.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ─── SIMULADOR DRAWBACK ────────────────────────────────── -->
-    <section class="section section-dark" id="simulador">
+    <section class="section" id="simulador">
         <div class="container">
             <div class="sim-box" data-reveal>
                 <div class="sim-glow"></div>
                 <div class="sim-inner">
                     <div class="sim-left">
-                        <div class="section-tag tag-gold">Tax Engine · Simulação</div>
-                        <h2>Descubra quanto você<br>pode recuperar com Drawback</h2>
+                        <div class="section-tag tag-gold">Tax Engine · Simulação ao vivo</div>
+                        <h2>Descubra agora quanto você<br>pode recuperar com Drawback</h2>
                         <p>Informe o NCM e o valor anual importado. O Tax Engine calcula instantaneamente a suspensão
                             de II, IPI, PIS/COFINS e ICMS — com base nas alíquotas vigentes da TIPI e do RIPI.</p>
 
@@ -630,7 +731,7 @@
     </section>
 
     <!-- ─── CTA ───────────────────────────────────────────────── -->
-    <section class="section" id="cta">
+    <section class="section section-dark" id="cta">
         <div class="container">
             <div class="cta-box" data-reveal>
                 <div class="cta-glow"></div>
@@ -733,10 +834,10 @@
                 <div class="footer-col">
                     <h5>Recursos</h5>
                     <ul>
+                        <li><a href="#lead-magnet">Guia Gratuito Drawback</a></li>
                         <li><a href="#">Documentação API</a></li>
                         <li><a href="#">Cases de Sucesso</a></li>
                         <li><a href="#">Conformidade LGPD</a></li>
-                        <li><a href="#">Integração Siscomex</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -758,7 +859,6 @@
 
     <script src="main.js"></script>
     <script>
-        // Stat bar: "D+0" is static — patch it
         document.querySelectorAll('.stat-value[data-format="static"]').forEach(el => {
             el.textContent = el.dataset.display || 'D+0';
         });

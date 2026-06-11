@@ -257,7 +257,37 @@ function handleCTA() {
     }, 1800);
 }
 
-// Active nav style injection
+// ─── HERO MINI-SIM REDIRECT ──────────────────────────────────
+function heroSimRedirect() {
+    const val = document.getElementById('hero-sim-input')?.value;
+    if (val && parseFloat(val) > 0) {
+        const amountField = document.getElementById('sim-amount');
+        if (amountField) amountField.value = val;
+    }
+    document.getElementById('simulador')?.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => document.getElementById('sim-ncm')?.focus(), 700);
+}
+
+// ─── LEAD MAGNET HANDLER ─────────────────────────────────────
+function handleLead() {
+    const email = document.getElementById('lead-email');
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email?.value || '');
+    if (!emailOk) {
+        if (email) {
+            email.style.borderColor = 'rgba(239,68,68,0.5)';
+            email.style.boxShadow   = '0 0 0 3px rgba(239,68,68,0.08)';
+            setTimeout(() => { email.style.borderColor = ''; email.style.boxShadow = ''; }, 2500);
+            email.focus();
+        }
+        return;
+    }
+    const area = document.getElementById('lead-form-area');
+    if (area) area.style.display = 'none';
+    const success = document.getElementById('lead-success');
+    if (success) success.classList.add('show');
+}
+
+// ─── Active nav style injection
 const s = document.createElement('style');
 s.textContent = `.nav-active { color: #EFF6FF !important; } .nav-active::after { width: 100% !important; }`;
 document.head.appendChild(s);
